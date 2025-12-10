@@ -34,13 +34,24 @@
     <meta name="theme-color" content="#2563eb" />
     <meta name="msapplication-TileColor" content="#2563eb" />
 
-    <!-- Critical CSS for initial render -->
+    <!-- Critical CSS for initial render - prevents CLS -->
     <style>
+      *,*::before,*::after{box-sizing:border-box}
       html{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
-      body{margin:0;min-height:100vh}
+      body{margin:0;min-height:100vh;background:#1e3a5f}
       .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-      #app{min-height:100vh}
+      #app{min-height:100vh;display:flex;flex-direction:column}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      /* Loading skeleton */
+      .app-skeleton{min-height:100vh;background:linear-gradient(135deg,#1e3a5f 0%,#2d4a6f 50%,#1e3a5f 100%);display:flex;flex-direction:column}
+      .skeleton-nav{height:64px;background:rgba(255,255,255,0.05);display:flex;align-items:center;padding:0 16px}
+      .skeleton-logo{width:120px;height:32px;background:rgba(255,255,255,0.1);border-radius:8px}
+      .skeleton-hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:48px 16px;text-align:center}
+      .skeleton-title{width:80%;max-width:500px;height:48px;background:rgba(255,255,255,0.15);border-radius:8px;margin-bottom:16px}
+      .skeleton-subtitle{width:60%;max-width:350px;height:24px;background:rgba(255,255,255,0.1);border-radius:6px;margin-bottom:24px}
+      .skeleton-btn{width:150px;height:48px;background:rgba(251,146,60,0.6);border-radius:12px}
+      .app-skeleton{animation:skeleton-fade 1.5s ease-in-out infinite alternate}
+      @keyframes skeleton-fade{from{opacity:0.8}to{opacity:1}}
     </style>
 
     <!-- Preconnect to image CDNs -->
@@ -82,7 +93,19 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none">
       Skip to main content
     </a>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Loading skeleton - replaced by Vue when app mounts -->
+      <div class="app-skeleton">
+        <div class="skeleton-nav">
+          <div class="skeleton-logo"></div>
+        </div>
+        <div class="skeleton-hero">
+          <div class="skeleton-title"></div>
+          <div class="skeleton-subtitle"></div>
+          <div class="skeleton-btn"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.ts"></script>
   </body>
 </html>

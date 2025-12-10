@@ -26,7 +26,7 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-surface-50">
+  <div class="flex min-h-screen flex-col bg-surface-50">
     <!-- Header -->
     <header class="sticky top-0 z-50 border-b border-surface-200 bg-white shadow-sm">
       <div class="mx-auto max-w-7xl px-4">
@@ -133,11 +133,9 @@ watch(() => route.path, () => {
     </header>
 
     <!-- Main Content -->
-    <main id="main-content" role="main">
+    <main id="main-content" role="main" class="flex-1">
       <RouterView v-slot="{ Component }">
-        <Transition name="page" mode="out-in">
-          <component :is="Component" />
-        </Transition>
+        <component :is="Component" />
       </RouterView>
     </main>
 
