@@ -59,13 +59,17 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Critical CSS - above-the-fold styles -->
+    <!-- Critical CSS - prevents CLS by reserving space for header, hero, bottom nav -->
     <style>
       *,*::before,*::after{box-sizing:border-box}
-      html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
+      html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%;scroll-behavior:auto}
       body{margin:0;background:#f9fafb}
       #app{min-height:100vh;display:flex;flex-direction:column}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      /* Reserve space for header */
+      #app>header:first-child{height:64px;flex-shrink:0}
+      /* Reserve space for bottom nav on mobile */
+      @media(max-width:639px){#app>div:last-child{height:72px}}
     </style>
 
     <!-- DNS prefetch as fallback for older browsers -->

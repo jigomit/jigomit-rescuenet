@@ -297,15 +297,17 @@ html {
 }
 
 /* ========================================
+   CLS PREVENTION - Disable all transitions/animations
+   ======================================== */
+*, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* ========================================
    MOBILE OPTIMIZATIONS
    ======================================== */
 @media (max-width: 640px) {
-    /* DISABLE ALL TRANSITIONS/ANIMATIONS on mobile for 100% performance */
-    *, *::before, *::after {
-        transition: none !important;
-        animation: none !important;
-    }
-
     /* Better text sizing on mobile */
     html {
         font-size: 16px;

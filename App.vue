@@ -27,21 +27,19 @@ watch(() => route.path, () => {
 
 <template>
   <div class="flex min-h-screen flex-col bg-surface-50">
-    <!-- Header -->
-    <header class="app-header sticky top-0 z-50 border-b border-surface-200 bg-white shadow-sm">
-      <div class="mx-auto max-w-7xl px-4">
-        <div class="flex h-16 items-center justify-between">
+    <!-- Header - fixed height h-16 to prevent CLS -->
+    <header class="h-16 shrink-0 border-b border-surface-200 bg-white">
+      <div class="mx-auto h-full max-w-7xl px-4">
+        <div class="flex h-full items-center justify-between">
           <!-- Logo -->
           <RouterLink to="/" class="flex items-center gap-2.5" aria-label="RescueNet - Go to homepage">
-            <div class="relative">
-              <img
-                src="/logo.svg"
-                alt="RescueNet Logo"
-                class="h-9 w-9"
-                width="36"
-                height="36"
-              />
-            </div>
+            <img
+              src="/logo.svg"
+              alt=""
+              class="h-9 w-9"
+              width="36"
+              height="36"
+            />
             <span class="text-lg font-bold text-surface-900">
               Rescue<span class="text-primary-600">Net</span>
             </span>
@@ -53,10 +51,10 @@ watch(() => route.path, () => {
               v-for="item in navItems"
               :key="item.to"
               :to="item.to"
-              class="rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+              class="rounded-lg px-4 py-2 text-sm font-medium"
               :class="isActive(item.to)
                 ? 'bg-primary-50 text-primary-700'
-                : 'text-surface-600 hover:bg-surface-100 hover:text-surface-900'"
+                : 'text-surface-600'"
             >
               {{ item.label }}
             </RouterLink>
@@ -67,7 +65,7 @@ watch(() => route.path, () => {
             <!-- Donate Button -->
             <RouterLink
               to="/donate"
-              class="hidden rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-accent-700 sm:inline-flex"
+              class="hidden rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md sm:inline-flex"
             >
               Donate Now
             </RouterLink>
@@ -75,7 +73,7 @@ watch(() => route.path, () => {
             <!-- Mobile Menu Button -->
             <button
               type="button"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-surface-600 hover:bg-surface-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 lg:hidden"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-surface-600 lg:hidden"
               :aria-expanded="mobileMenuOpen"
               aria-controls="mobile-menu"
               aria-label="Toggle navigation menu"
@@ -97,7 +95,7 @@ watch(() => route.path, () => {
       <div
         v-show="mobileMenuOpen"
         id="mobile-menu"
-        class="border-t border-surface-200 bg-white lg:hidden"
+        class="absolute left-0 right-0 top-16 z-50 border-b border-surface-200 bg-white shadow-lg lg:hidden"
       >
         <nav class="mx-auto max-w-7xl px-4 py-4" aria-label="Mobile navigation">
           <div class="space-y-1">
@@ -105,10 +103,10 @@ watch(() => route.path, () => {
               v-for="item in navItems"
               :key="item.to"
               :to="item.to"
-              class="flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition-colors"
+              class="flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium"
               :class="isActive(item.to)
                 ? 'bg-primary-50 text-primary-700'
-                : 'text-surface-700 hover:bg-surface-100'"
+                : 'text-surface-700'"
               @click="mobileMenuOpen = false"
             >
               <span class="text-xl">{{ item.icon }}</span>
@@ -144,7 +142,7 @@ watch(() => route.path, () => {
         <div class="grid gap-6 grid-cols-2 sm:gap-8 lg:grid-cols-5">
           <div class="col-span-2 lg:col-span-1">
             <div class="flex items-center gap-2.5">
-              <img src="/logo.svg" alt="RescueNet Logo" class="h-8 w-8 sm:h-10 sm:w-10" width="40" height="40" />
+              <img src="/logo.svg" alt="" class="h-8 w-8 sm:h-10 sm:w-10" width="40" height="40" />
               <span class="text-lg font-bold text-white sm:text-xl">RescueNet</span>
             </div>
             <p class="mt-3 text-xs text-surface-400 sm:mt-4 sm:text-sm max-w-xs">Providing rapid disaster relief and humanitarian aid worldwide.</p>
@@ -152,18 +150,18 @@ watch(() => route.path, () => {
           <div>
             <h3 class="text-sm font-semibold text-white sm:text-base">Quick Links</h3>
             <ul class="mt-3 space-y-2 text-xs sm:mt-4 sm:text-sm">
-              <li><RouterLink to="/disasters" class="text-surface-400 hover:text-white transition-colors">Active Disasters</RouterLink></li>
-              <li><RouterLink to="/campaigns" class="text-surface-400 hover:text-white transition-colors">Campaigns</RouterLink></li>
-              <li><RouterLink to="/volunteer" class="text-surface-400 hover:text-white transition-colors">Volunteer</RouterLink></li>
-              <li><RouterLink to="/donate" class="text-surface-400 hover:text-white transition-colors">Donate</RouterLink></li>
+              <li><RouterLink to="/disasters" class="text-surface-400">Active Disasters</RouterLink></li>
+              <li><RouterLink to="/campaigns" class="text-surface-400">Campaigns</RouterLink></li>
+              <li><RouterLink to="/volunteer" class="text-surface-400">Volunteer</RouterLink></li>
+              <li><RouterLink to="/donate" class="text-surface-400">Donate</RouterLink></li>
             </ul>
           </div>
           <div>
             <h3 class="text-sm font-semibold text-white sm:text-base">About</h3>
             <ul class="mt-3 space-y-2 text-xs sm:mt-4 sm:text-sm">
-              <li><RouterLink to="/about" class="text-surface-400 hover:text-white transition-colors">Our Mission</RouterLink></li>
-              <li><RouterLink to="/contact" class="text-surface-400 hover:text-white transition-colors">Contact Us</RouterLink></li>
-              <li><RouterLink to="/blog" class="text-surface-400 hover:text-white transition-colors">Blog</RouterLink></li>
+              <li><RouterLink to="/about" class="text-surface-400">Our Mission</RouterLink></li>
+              <li><RouterLink to="/contact" class="text-surface-400">Contact Us</RouterLink></li>
+              <li><RouterLink to="/blog" class="text-surface-400">Blog</RouterLink></li>
             </ul>
           </div>
           <div class="col-span-2 sm:col-span-1 lg:col-span-1">
@@ -178,23 +176,21 @@ watch(() => route.path, () => {
       </div>
     </footer>
 
-    <!-- Mobile Bottom Navigation - fixed height 72px to prevent CLS -->
-    <nav class="fixed bottom-0 left-0 right-0 z-50 h-[72px] border-t border-surface-200 bg-white shadow-lg sm:hidden safe-bottom" aria-label="Mobile bottom navigation">
+    <!-- Mobile Bottom Navigation - fixed height 72px -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 h-[72px] border-t border-surface-200 bg-white shadow-lg sm:hidden" aria-label="Mobile bottom navigation">
       <div class="flex h-full items-center justify-around">
         <RouterLink
           to="/"
-          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
+          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium"
           :class="isActive('/') ? 'text-primary-600' : 'text-surface-500'"
-          :aria-current="isActive('/') ? 'page' : undefined"
         >
           <span class="text-xl" aria-hidden="true">🏠</span>
           <span>Home</span>
         </RouterLink>
         <RouterLink
           to="/disasters"
-          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
+          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium"
           :class="isActive('/disasters') ? 'text-primary-600' : 'text-surface-500'"
-          :aria-current="isActive('/disasters') ? 'page' : undefined"
         >
           <span class="text-xl" aria-hidden="true">🚨</span>
           <span>Disasters</span>
@@ -207,22 +203,19 @@ watch(() => route.path, () => {
           <span class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-600 text-xl text-white shadow-lg" aria-hidden="true">
             ❤️
           </span>
-          <span class="sr-only">Donate</span>
         </RouterLink>
         <RouterLink
           to="/campaigns"
-          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
+          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium"
           :class="isActive('/campaigns') ? 'text-primary-600' : 'text-surface-500'"
-          :aria-current="isActive('/campaigns') ? 'page' : undefined"
         >
           <span class="text-xl" aria-hidden="true">💰</span>
           <span>Campaigns</span>
         </RouterLink>
         <RouterLink
           to="/volunteer"
-          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
+          class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium"
           :class="isActive('/volunteer') ? 'text-primary-600' : 'text-surface-500'"
-          :aria-current="isActive('/volunteer') ? 'page' : undefined"
         >
           <span class="text-xl" aria-hidden="true">🤝</span>
           <span>Volunteer</span>
@@ -230,20 +223,7 @@ watch(() => route.path, () => {
       </div>
     </nav>
 
-    <!-- Spacer for bottom nav on mobile - fixed height to prevent CLS -->
+    <!-- Spacer for bottom nav on mobile -->
     <div class="h-[72px] sm:h-0" aria-hidden="true"></div>
   </div>
 </template>
-
-<style>
-/* Page transitions */
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-}
-</style>
