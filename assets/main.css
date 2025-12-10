@@ -1,0 +1,312 @@
+@import 'tailwindcss';
+
+/* Dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* Font Family */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+    /* ========================================
+       PRIMARY: Modern Blue (Trust/Professional)
+       ======================================== */
+    --color-primary-50: oklch(97% 0.015 250);
+    --color-primary-100: oklch(94% 0.03 250);
+    --color-primary-200: oklch(88% 0.06 250);
+    --color-primary-300: oklch(78% 0.10 250);
+    --color-primary-400: oklch(68% 0.14 250);
+    --color-primary-500: oklch(58% 0.18 250);
+    --color-primary-600: oklch(50% 0.18 250);
+    --color-primary-700: oklch(42% 0.16 250);
+    --color-primary-800: oklch(34% 0.14 250);
+    --color-primary-900: oklch(26% 0.12 250);
+    --color-primary-950: oklch(18% 0.10 250);
+
+    /* ========================================
+       ACCENT: Vibrant Orange/Coral (Action/CTA)
+       ======================================== */
+    --color-accent-50: oklch(97% 0.02 45);
+    --color-accent-100: oklch(94% 0.05 45);
+    --color-accent-200: oklch(88% 0.10 42);
+    --color-accent-300: oklch(80% 0.15 40);
+    --color-accent-400: oklch(72% 0.19 38);
+    --color-accent-500: oklch(66% 0.21 35);
+    --color-accent-600: oklch(58% 0.20 32);
+    --color-accent-700: oklch(50% 0.18 30);
+    --color-accent-800: oklch(42% 0.15 28);
+    --color-accent-900: oklch(35% 0.12 26);
+    --color-accent-950: oklch(25% 0.10 24);
+
+    /* ========================================
+       SEVERITY LEVELS
+       ======================================== */
+    --color-severity-critical: oklch(58% 0.24 25);
+    --color-severity-high: oklch(65% 0.22 40);
+    --color-severity-moderate: oklch(78% 0.16 85);
+    --color-severity-low: oklch(72% 0.16 145);
+    --color-severity-info: oklch(62% 0.14 250);
+
+    /* ========================================
+       SEMANTIC COLORS
+       ======================================== */
+    --color-success-50: oklch(97% 0.02 150);
+    --color-success-100: oklch(94% 0.05 150);
+    --color-success-200: oklch(88% 0.10 150);
+    --color-success-300: oklch(78% 0.14 150);
+    --color-success-400: oklch(70% 0.17 150);
+    --color-success-500: oklch(62% 0.18 150);
+    --color-success-600: oklch(52% 0.16 150);
+    --color-success-700: oklch(44% 0.14 150);
+    --color-success-900: oklch(30% 0.10 150);
+
+    --color-warning-50: oklch(97% 0.02 85);
+    --color-warning-100: oklch(94% 0.05 85);
+    --color-warning-400: oklch(80% 0.18 85);
+    --color-warning-500: oklch(78% 0.17 85);
+    --color-warning-600: oklch(68% 0.16 85);
+    --color-warning-700: oklch(58% 0.14 85);
+
+    --color-error-50: oklch(97% 0.02 25);
+    --color-error-100: oklch(94% 0.05 25);
+    --color-error-500: oklch(60% 0.24 25);
+    --color-error-600: oklch(50% 0.22 25);
+    --color-error-700: oklch(42% 0.20 25);
+
+    /* ========================================
+       SURFACE COLORS
+       ======================================== */
+    --color-surface-50: oklch(99% 0.004 250);
+    --color-surface-100: oklch(97% 0.006 250);
+    --color-surface-200: oklch(94% 0.008 250);
+    --color-surface-300: oklch(90% 0.01 250);
+    --color-surface-400: oklch(82% 0.012 250);
+    --color-surface-500: oklch(70% 0.014 250);
+    --color-surface-600: oklch(55% 0.016 250);
+    --color-surface-700: oklch(40% 0.014 250);
+    --color-surface-800: oklch(26% 0.012 250);
+    --color-surface-900: oklch(18% 0.010 250);
+    --color-surface-950: oklch(12% 0.008 250);
+
+    /* ========================================
+       ANIMATIONS
+       ======================================== */
+    --animate-fade-in: fade-in 0.3s ease-out;
+    --animate-slide-up: slide-up 0.4s ease-out;
+    --animate-scale-in: scale-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slide-up {
+        from { opacity: 0; transform: translateY(1rem); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scale-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.4); }
+        50% { box-shadow: 0 0 20px 10px rgba(251, 146, 60, 0); }
+    }
+
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+
+    --animate-float: float 3s ease-in-out infinite;
+    --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+.animate-out {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Staggered animations for lists */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* Slide from left */
+.slide-left.animate-out {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.slide-left.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide from right */
+.slide-right.animate-out {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.slide-right.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale up */
+.scale-up.animate-out {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.scale-up.animate-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========================================
+   PAGE TRANSITIONS
+   ======================================== */
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-enter-from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover:hover {
+    transform: scale(1.05);
+}
+
+.btn-hover:active {
+    transform: scale(0.98);
+}
+
+.link-hover {
+    position: relative;
+}
+
+.link-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+    width: 100%;
+}
+
+/* Image zoom on hover */
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img {
+    transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* Gradient text animation */
+.gradient-text {
+    background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500), var(--color-primary-500));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}
+
+/* Floating animation */
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse glow for CTAs */
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+@media (max-width: 640px) {
+    /* Improve touch targets */
+    button, a, input, select, textarea {
+        min-height: 44px;
+    }
+
+    /* Reduce card hover effects on mobile */
+    .card-hover:hover {
+        transform: none;
+    }
+
+    /* Disable pulse glow on mobile for performance */
+    .pulse-glow {
+        animation: none;
+    }
+
+    /* Better text sizing on mobile */
+    html {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+    }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .safe-bottom {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
