@@ -58,11 +58,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&q=50&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1280&q=40&auto=format&fm=webp&fit=crop"
           alt="Volunteers providing humanitarian aid"
           class="h-full w-full object-cover opacity-20"
-          width="1920"
-          height="1080"
+          width="1280"
+          height="720"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -70,10 +70,10 @@ onMounted(() => {
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
 
-      <!-- Floating decorative elements -->
-      <div class="absolute left-10 top-20 h-20 w-20 rounded-full bg-accent-500/10 blur-2xl float" style="animation-delay: 0s;"></div>
-      <div class="absolute right-20 top-40 h-32 w-32 rounded-full bg-primary-400/10 blur-3xl float" style="animation-delay: 1s;"></div>
-      <div class="absolute bottom-20 left-1/3 h-24 w-24 rounded-full bg-accent-400/10 blur-2xl float" style="animation-delay: 2s;"></div>
+      <!-- Floating decorative elements - hidden on mobile for performance -->
+      <div class="absolute left-10 top-20 hidden h-20 w-20 rounded-full bg-accent-500/10 blur-2xl md:block float" style="animation-delay: 0s;"></div>
+      <div class="absolute right-20 top-40 hidden h-32 w-32 rounded-full bg-primary-400/10 blur-3xl md:block float" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-20 left-1/3 hidden h-24 w-24 rounded-full bg-accent-400/10 blur-2xl md:block float" style="animation-delay: 2s;"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-40">
         <div class="max-w-3xl">
@@ -138,7 +138,7 @@ onMounted(() => {
     </section>
 
     <!-- Active Disasters -->
-    <section class="py-12 sm:py-16 lg:py-24">
+    <section class="content-auto py-12 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -163,8 +163,8 @@ onMounted(() => {
                 :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="640"
-                height="427"
+                width="480"
+                height="320"
                 loading="lazy"
                 decoding="async"
               />
@@ -204,7 +204,7 @@ onMounted(() => {
     </section>
 
     <!-- Featured Campaign -->
-    <section v-if="featuredCampaign" class="bg-surface-100 py-16 sm:py-24">
+    <section v-if="featuredCampaign" class="content-auto bg-surface-100 py-16 sm:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate scale-up overflow-hidden rounded-3xl bg-white shadow-xl">
           <div class="grid lg:grid-cols-2">
@@ -213,8 +213,8 @@ onMounted(() => {
                 :src="featuredCampaign.image_url"
                 :alt="featuredCampaign.title"
                 class="h-full w-full object-cover"
-                width="640"
-                height="427"
+                width="480"
+                height="320"
                 loading="lazy"
                 decoding="async"
               />
@@ -271,7 +271,7 @@ onMounted(() => {
     </section>
 
     <!-- How We Help Section -->
-    <section class="py-16 sm:py-24">
+    <section class="content-auto py-16 sm:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate text-center">
           <h2 class="text-3xl font-bold text-surface-900">How We Help</h2>
@@ -325,7 +325,7 @@ onMounted(() => {
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-primary-900 py-12 sm:py-16 lg:py-24">
+    <section class="content-auto bg-primary-900 py-12 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 class="scroll-animate text-2xl font-bold text-white sm:text-3xl lg:text-4xl">Ready to Make a Difference?</h2>
         <p class="scroll-animate stagger-1 mx-auto mt-3 max-w-2xl text-base text-primary-100 sm:mt-4 sm:text-lg">

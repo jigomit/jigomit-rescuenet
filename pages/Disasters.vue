@@ -35,11 +35,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1920&q=50&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1280&q=40&auto=format&fm=webp&fit=crop"
           alt="Flood disaster scene"
           class="h-full w-full object-cover opacity-30"
-          width="1920"
-          height="1080"
+          width="1280"
+          height="720"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -47,9 +47,9 @@ onMounted(() => {
         <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
       </div>
 
-      <!-- Floating elements -->
-      <div class="absolute right-10 top-10 h-32 w-32 rounded-full bg-accent-500/10 blur-3xl float"></div>
-      <div class="absolute left-20 bottom-10 h-24 w-24 rounded-full bg-primary-400/10 blur-2xl float" style="animation-delay: 1s;"></div>
+      <!-- Floating elements - hidden on mobile -->
+      <div class="absolute right-10 top-10 hidden h-32 w-32 rounded-full bg-accent-500/10 blur-3xl md:block float"></div>
+      <div class="absolute left-20 bottom-10 hidden h-24 w-24 rounded-full bg-primary-400/10 blur-2xl md:block float" style="animation-delay: 1s;"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div class="text-center">
@@ -137,8 +137,8 @@ onMounted(() => {
                 :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="640"
-                height="427"
+                width="480"
+                height="320"
                 loading="lazy"
                 decoding="async"
               />

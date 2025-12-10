@@ -282,6 +282,12 @@
    PERFORMANCE OPTIMIZATIONS
    ======================================== */
 
+/* Content visibility for offscreen sections */
+.content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+}
+
 /* Use GPU acceleration for animations */
 .card-hover,
 .btn-hover,
@@ -290,6 +296,11 @@
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
+}
+
+/* Optimize image rendering */
+img {
+    content-visibility: auto;
 }
 
 /* Reduce motion for users who prefer it */
