@@ -27,10 +27,13 @@ const formatCurrency = (amount: number) => {
 }
 
 onMounted(() => {
-  // Initialize scroll animations
-  setTimeout(() => {
-    observeAll('.scroll-animate')
-  }, 100)
+  // Initialize scroll animations - deferred to reduce TBT
+  const initAnimations = () => observeAll('.scroll-animate')
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initAnimations, { timeout: 200 })
+  } else {
+    setTimeout(initAnimations, 50)
+  }
 
   // Stats counter observer
   const statsSection = document.querySelector('.stats-section')
