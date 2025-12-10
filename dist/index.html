@@ -43,10 +43,11 @@
     <!-- Preload LCP image for better performance -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=20&auto=format&fm=webp&fit=crop" type="image/webp" fetchpriority="high">
 
-    <!-- Fonts - Use font-display: swap for performance -->
+    <!-- Fonts - Load asynchronously to prevent render blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -70,8 +71,8 @@
       }
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BiGCv9_d.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-YpycRunC.css">
+    <script type="module" crossorigin src="/assets/index-Bem0sCnB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index--YkFkyTw.css">
   </head>
   <body class="antialiased">
     <!-- Skip to main content link for accessibility -->
@@ -79,5 +80,16 @@
       Skip to main content
     </a>
     <div id="app"></div>
+    <script>
+      // Detect when Inter font is loaded and apply it
+      if ('fonts' in document) {
+        document.fonts.ready.then(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      } else {
+        // Fallback for older browsers
+        document.documentElement.classList.add('fonts-loaded');
+      }
+    </script>
   </body>
 </html>

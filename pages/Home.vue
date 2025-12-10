@@ -78,13 +78,13 @@ onMounted(() => {
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-40">
         <div class="max-w-3xl">
           <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-            <span class="hero-animate hero-delay-1">When Disaster Strikes,</span>
-            <span class="block text-accent-400 mt-2 hero-animate hero-delay-2">We Respond</span>
+            <span>When Disaster Strikes,</span>
+            <span class="block text-accent-400 mt-2">We Respond</span>
           </h1>
-          <p class="mt-4 text-base text-primary-100 sm:mt-6 sm:text-lg md:text-xl hero-animate hero-delay-3">
+          <p class="mt-4 text-base text-primary-100 sm:mt-6 sm:text-lg md:text-xl">
             RescueNet provides rapid humanitarian aid to communities affected by natural disasters. Join us in saving lives and rebuilding hope.
           </p>
-          <div class="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4 hero-animate hero-delay-4">
+          <div class="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
             <RouterLink
               to="/donate"
               class="btn-hover pulse-glow inline-flex items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-accent-500/30 transition-all hover:bg-accent-700 hover:shadow-accent-500/50 sm:px-8 sm:py-4 sm:text-lg"
