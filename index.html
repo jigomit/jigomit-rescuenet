@@ -63,9 +63,8 @@
     <style>
       *,*::before,*::after{box-sizing:border-box}
       html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
-      body{margin:0;background:#1e3a5f;display:flex;flex-direction:column;min-height:100vh}
-      #app{flex:1}
-      #footer-mount{background:#0f172a}
+      body{margin:0;background:#1e3a5f}
+      #app{min-height:100vh}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     </style>
 
@@ -151,34 +150,6 @@
       Skip to main content
     </a>
     <div id="app"></div>
-    <div id="footer-mount">
-      <footer style="background:#0f172a">
-        <div style="max-width:80rem;margin:0 auto;padding:2rem 1rem">
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem">
-            <div style="grid-column:span 2">
-              <div style="display:flex;align-items:center;gap:0.625rem">
-                <img src="/logo.svg" alt="" width="32" height="32" style="width:2rem;height:2rem">
-                <span style="font-size:1.125rem;font-weight:700;color:#fff">RescueNet</span>
-              </div>
-              <p style="margin-top:0.75rem;font-size:0.75rem;color:#94a3b8;max-width:20rem">Providing rapid disaster relief and humanitarian aid worldwide.</p>
-            </div>
-            <div>
-              <h3 style="font-size:0.875rem;font-weight:600;color:#fff">Quick Links</h3>
-              <ul style="margin-top:0.75rem;font-size:0.75rem;color:#94a3b8;list-style:none;padding:0;margin-bottom:0"><li style="margin-bottom:0.5rem">Active Disasters</li><li style="margin-bottom:0.5rem">Campaigns</li><li style="margin-bottom:0.5rem">Volunteer</li><li style="margin-bottom:0">Donate</li></ul>
-            </div>
-            <div>
-              <h3 style="font-size:0.875rem;font-weight:600;color:#fff">About</h3>
-              <ul style="margin-top:0.75rem;font-size:0.75rem;color:#94a3b8;list-style:none;padding:0;margin-bottom:0"><li style="margin-bottom:0.5rem">Our Mission</li><li style="margin-bottom:0.5rem">Contact Us</li><li style="margin-bottom:0">Blog</li></ul>
-            </div>
-            <div style="grid-column:span 2">
-              <h3 style="font-size:0.875rem;font-weight:600;color:#fff">Contact</h3>
-              <ul style="margin-top:0.75rem;font-size:0.75rem;color:#94a3b8;list-style:none;padding:0;margin-bottom:0"><li style="margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem"><span>📧</span><span>contact@rescuenet.org</span></li><li style="display:flex;align-items:center;gap:0.5rem"><span>📞</span><span>1-800-RESCUE</span></li></ul>
-            </div>
-          </div>
-          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #1e293b;text-align:center;font-size:0.75rem;color:#64748b">© 2024 RescueNet. All rights reserved.</div>
-        </div>
-      </footer>
-    </div>
     <script type="module" src="/main.ts"></script>
   </body>
 </html>
