@@ -55,6 +55,10 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Preconnect to external image CDN for faster loading -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
     <!-- Critical CSS - prevents CLS by reserving space for header, hero, bottom nav -->
     <style>
       *,*::before,*::after{box-sizing:border-box}

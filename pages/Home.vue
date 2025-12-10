@@ -1,11 +1,38 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { disasters } from '@/data/disasters'
+import { getFeaturedCampaign } from '@/data/campaigns'
+
+const featuredCampaign = getFeaturedCampaign()
+const activeDisasters = disasters.filter(d => d.status === 'active').slice(0, 3)
+
+const formatCurrency = (amount: number) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+  }).format(amount)
+}
 </script>
 
 <template>
   <div>
-    <!-- Hero Section - Pure CSS, no images, zero CLS -->
+    <!-- Hero Section - Fixed height with background image -->
     <section class="relative h-[400px] overflow-hidden bg-primary-900 sm:h-[450px] lg:h-[550px]">
+      <!-- Background image with fixed positioning to prevent CLS -->
+      <div class="absolute inset-0 bg-primary-900">
+        <img
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=75&auto=format&fm=webp&fit=crop"
+          alt=""
+          class="h-full w-full object-cover opacity-30"
+          width="1200"
+          height="800"
+          loading="eager"
+          fetchpriority="high"
+          decoding="sync"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-primary-800/60"></div>
+      </div>
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-32">
         <div class="max-w-3xl">
           <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
@@ -74,79 +101,83 @@ import { RouterLink } from 'vue-router'
         </div>
 
         <div class="mt-6 grid gap-4 sm:mt-8 sm:gap-5 sm:grid-cols-2 lg:mt-10 lg:gap-6 lg:grid-cols-3">
-          <!-- Card 1 -->
-          <RouterLink to="/disasters/1" class="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm sm:rounded-2xl">
-            <div class="h-32 bg-red-100 flex items-center justify-center sm:h-40">
-              <span class="text-4xl">🌊</span>
+          <RouterLink
+            v-for="disaster in activeDisasters"
+            :key="disaster.id"
+            :to="`/disasters/${disaster.id}`"
+            class="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm sm:rounded-2xl"
+          >
+            <!-- Fixed height container with background color prevents CLS -->
+            <div class="relative h-32 bg-surface-200 sm:h-40">
+              <img
+                :src="`${disaster.image}?w=400&h=200&q=75&auto=format&fm=webp&fit=crop`"
+                :alt="disaster.title"
+                class="absolute inset-0 h-full w-full object-cover"
+                width="400"
+                height="200"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="p-4 sm:p-5 lg:p-6">
-              <span class="rounded-full bg-red-500 px-2.5 py-0.5 text-[10px] font-semibold uppercase text-white sm:px-3 sm:py-1 sm:text-xs">Critical</span>
-              <h3 class="mt-2 text-base font-semibold text-surface-900 sm:text-lg">Southeast Asia Flooding</h3>
-              <p class="mt-1.5 text-xs text-surface-600 sm:text-sm">Severe flooding affecting millions across the region</p>
-              <p class="mt-3 text-xs text-surface-500 sm:mt-4 sm:text-sm">📍 Thailand, Vietnam</p>
-            </div>
-          </RouterLink>
-          <!-- Card 2 -->
-          <RouterLink to="/disasters/2" class="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm sm:rounded-2xl">
-            <div class="h-32 bg-orange-100 flex items-center justify-center sm:h-40">
-              <span class="text-4xl">🌋</span>
-            </div>
-            <div class="p-4 sm:p-5 lg:p-6">
-              <span class="rounded-full bg-orange-500 px-2.5 py-0.5 text-[10px] font-semibold uppercase text-white sm:px-3 sm:py-1 sm:text-xs">High</span>
-              <h3 class="mt-2 text-base font-semibold text-surface-900 sm:text-lg">Volcanic Eruption Response</h3>
-              <p class="mt-1.5 text-xs text-surface-600 sm:text-sm">Emergency evacuation and relief efforts underway</p>
-              <p class="mt-3 text-xs text-surface-500 sm:mt-4 sm:text-sm">📍 Indonesia</p>
-            </div>
-          </RouterLink>
-          <!-- Card 3 -->
-          <RouterLink to="/disasters/3" class="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm sm:rounded-2xl">
-            <div class="h-32 bg-yellow-100 flex items-center justify-center sm:h-40">
-              <span class="text-4xl">🏜️</span>
-            </div>
-            <div class="p-4 sm:p-5 lg:p-6">
-              <span class="rounded-full bg-yellow-500 px-2.5 py-0.5 text-[10px] font-semibold uppercase text-black sm:px-3 sm:py-1 sm:text-xs">Moderate</span>
-              <h3 class="mt-2 text-base font-semibold text-surface-900 sm:text-lg">Drought Relief Program</h3>
-              <p class="mt-1.5 text-xs text-surface-600 sm:text-sm">Providing water and food to affected communities</p>
-              <p class="mt-3 text-xs text-surface-500 sm:mt-4 sm:text-sm">📍 East Africa</p>
+              <span
+                class="rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase sm:px-3 sm:py-1 sm:text-xs"
+                :class="{
+                  'bg-red-500 text-white': disaster.severity === 'critical',
+                  'bg-orange-500 text-white': disaster.severity === 'high',
+                  'bg-yellow-500 text-black': disaster.severity === 'moderate',
+                }"
+              >
+                {{ disaster.severity }}
+              </span>
+              <h3 class="mt-2 text-base font-semibold text-surface-900 sm:text-lg">{{ disaster.title }}</h3>
+              <p class="mt-1.5 line-clamp-2 text-xs text-surface-600 sm:text-sm">{{ disaster.description }}</p>
+              <p class="mt-3 text-xs text-surface-500 sm:mt-4 sm:text-sm">📍 {{ disaster.location }}</p>
             </div>
           </RouterLink>
         </div>
       </div>
     </section>
 
-    <!-- Featured Campaign - Static content, no v-if -->
-    <section class="bg-surface-100 py-10 sm:py-16 lg:py-24">
+    <!-- Featured Campaign -->
+    <section v-if="featuredCampaign" class="bg-surface-100 py-10 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
           <div class="grid lg:grid-cols-2">
-            <div class="h-48 bg-accent-100 flex items-center justify-center sm:h-56 lg:h-auto lg:min-h-[300px]">
-              <div class="text-center">
-                <span class="text-6xl">🤝</span>
-                <p class="mt-2 text-accent-700 font-semibold">Featured Campaign</p>
-              </div>
+            <!-- Fixed height container with background color prevents CLS -->
+            <div class="relative h-48 bg-surface-200 sm:h-56 lg:h-auto lg:min-h-[300px]">
+              <img
+                :src="`${featuredCampaign.image}?w=600&h=400&q=75&auto=format&fm=webp&fit=crop`"
+                :alt="featuredCampaign.title"
+                class="absolute inset-0 h-full w-full object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="p-5 sm:p-8 lg:p-10 xl:p-12">
               <h2 class="text-xl font-bold text-surface-900 sm:text-2xl lg:text-3xl">
-                Emergency Relief Fund 2024
+                {{ featuredCampaign.title }}
               </h2>
               <p class="mt-2 text-sm text-surface-600 sm:mt-3 sm:text-base lg:mt-4">
-                Help us respond quickly to disasters worldwide. Your donation provides food, shelter, and medical care to those in need.
+                {{ featuredCampaign.description }}
               </p>
               <div class="mt-5 sm:mt-6 lg:mt-8">
                 <div class="flex items-end justify-between">
                   <div>
-                    <p class="text-2xl font-bold text-accent-600 sm:text-3xl">$847,000</p>
-                    <p class="text-xs text-surface-500 sm:text-sm">raised of $1,000,000 goal</p>
+                    <p class="text-2xl font-bold text-accent-600 sm:text-3xl">{{ formatCurrency(featuredCampaign.raised) }}</p>
+                    <p class="text-xs text-surface-500 sm:text-sm">raised of {{ formatCurrency(featuredCampaign.goal) }} goal</p>
                   </div>
-                  <p class="text-base font-semibold text-surface-900 sm:text-lg">85%</p>
+                  <p class="text-base font-semibold text-surface-900 sm:text-lg">{{ Math.round((featuredCampaign.raised / featuredCampaign.goal) * 100) }}%</p>
                 </div>
                 <div class="mt-3 h-2.5 overflow-hidden rounded-full bg-surface-200 sm:mt-4 sm:h-3">
-                  <div class="h-full w-[85%] rounded-full bg-accent-600"></div>
+                  <div class="h-full rounded-full bg-accent-600" :style="{ width: `${Math.min((featuredCampaign.raised / featuredCampaign.goal) * 100, 100)}%` }"></div>
                 </div>
-                <p class="mt-1.5 text-xs text-surface-500 sm:mt-2 sm:text-sm">12,847 donors</p>
+                <p class="mt-1.5 text-xs text-surface-500 sm:mt-2 sm:text-sm">{{ featuredCampaign.donors.toLocaleString() }} donors</p>
               </div>
               <RouterLink
-                to="/campaigns/1"
+                :to="`/campaigns/${featuredCampaign.id}`"
                 class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg sm:mt-6 sm:w-auto sm:px-8 sm:py-3.5 lg:mt-8 lg:py-4 lg:text-lg"
               >
                 Donate Now
