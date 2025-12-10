@@ -57,8 +57,8 @@ onMounted(() => {
 
 <template>
   <div>
-    <!-- Hero Section - Optimized for mobile/tablet/desktop with responsive images -->
-    <section class="relative min-h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:min-h-[450px] lg:min-h-[550px]">
+    <!-- Hero Section - Fixed height to prevent CLS -->
+    <section class="relative h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:h-[450px] lg:h-[550px]">
       <div class="absolute inset-0" aria-hidden="true">
         <picture>
           <!-- Mobile: smaller image, lower quality for faster load -->
@@ -176,13 +176,13 @@ onMounted(() => {
             class="scroll-animate card-hover group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm active:scale-[0.98] sm:rounded-2xl"
             :class="`stagger-${index + 1}`"
           >
-            <div class="relative h-40 overflow-hidden sm:h-44 lg:h-48">
+            <div class="relative aspect-[2/1] overflow-hidden">
               <img
                 :src="`${disaster.image_url}&w=400&q=60&auto=format&fm=webp`"
                 :alt="disaster.title"
-                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                class="absolute inset-0 h-full w-full object-cover"
                 width="400"
-                height="192"
+                height="200"
                 loading="lazy"
                 decoding="async"
               />
@@ -226,11 +226,11 @@ onMounted(() => {
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate scale-up overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
           <div class="grid lg:grid-cols-2">
-            <div class="relative h-48 sm:h-56 lg:h-auto">
+            <div class="relative aspect-[3/2] lg:aspect-auto lg:h-full">
               <img
                 :src="`${featuredCampaign.image_url}&w=600&q=70&auto=format&fm=webp`"
                 :alt="featuredCampaign.title"
-                class="h-full w-full object-cover"
+                class="absolute inset-0 h-full w-full object-cover"
                 width="600"
                 height="400"
                 loading="lazy"

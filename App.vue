@@ -131,8 +131,8 @@ watch(() => route.path, () => {
       </div>
     </header>
 
-    <!-- Main Content - min-h-screen ensures footer is below fold -->
-    <main id="main-content" role="main" class="app-main flex-1 min-h-screen">
+    <!-- Main Content -->
+    <main id="main-content" role="main" class="app-main flex-1">
       <RouterView v-slot="{ Component }">
         <component :is="Component" />
       </RouterView>
@@ -178,9 +178,9 @@ watch(() => route.path, () => {
       </div>
     </footer>
 
-    <!-- Mobile Bottom Navigation -->
-    <nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-surface-200 bg-white shadow-lg sm:hidden safe-bottom" aria-label="Mobile bottom navigation">
-      <div class="flex items-center justify-around py-2 pb-safe">
+    <!-- Mobile Bottom Navigation - fixed height 72px to prevent CLS -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 h-[72px] border-t border-surface-200 bg-white shadow-lg sm:hidden safe-bottom" aria-label="Mobile bottom navigation">
+      <div class="flex h-full items-center justify-around">
         <RouterLink
           to="/"
           class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
@@ -230,8 +230,8 @@ watch(() => route.path, () => {
       </div>
     </nav>
 
-    <!-- Spacer for bottom nav on mobile -->
-    <div class="h-20 sm:hidden"></div>
+    <!-- Spacer for bottom nav on mobile - fixed height to prevent CLS -->
+    <div class="h-[72px] sm:h-0" aria-hidden="true"></div>
   </div>
 </template>
 
