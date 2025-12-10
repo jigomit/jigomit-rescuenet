@@ -54,18 +54,19 @@ onMounted(() => {
 
 <template>
   <div>
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
-      <div class="absolute inset-0">
+    <!-- Hero Section - min-height matches skeleton for CLS prevention -->
+    <section class="relative min-h-[450px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:min-h-[500px]">
+      <div class="absolute inset-0" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop"
-          alt="Volunteers providing humanitarian aid to disaster victims"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop"
+          alt=""
           class="h-full w-full object-cover opacity-20"
-          width="640"
-          height="360"
+          width="800"
+          height="450"
           loading="eager"
           fetchpriority="high"
           decoding="async"
+          style="content-visibility: auto; contain-intrinsic-size: 800px 450px;"
         />
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
