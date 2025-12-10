@@ -1,22 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { disasters } from '@/data/disasters'
 import { getFeaturedCampaign } from '@/data/campaigns'
-import { useScrollAnimation, useCountAnimation } from '@/composables/useScrollAnimation'
 
 const featuredCampaign = getFeaturedCampaign()
 const activeDisasters = disasters.filter(d => d.status === 'active').slice(0, 3)
-
-const { observeAll } = useScrollAnimation()
-
-// Animated counters
-const livesCounter = useCountAnimation(50000, 2000)
-const fundsCounter = useCountAnimation(12, 2000)
-const disastersCounter = useCountAnimation(100, 2000)
-const volunteersCounter = useCountAnimation(5000, 2000)
-
-const statsVisible = ref(false)
 
 const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('en-US', {
@@ -25,34 +13,6 @@ const formatCurrency = (amount: number) => {
     minimumFractionDigits: 0,
   }).format(amount)
 }
-
-onMounted(() => {
-  // Initialize scroll animations - deferred to reduce TBT
-  const initAnimations = () => observeAll('.scroll-animate')
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(initAnimations, { timeout: 200 })
-  } else {
-    setTimeout(initAnimations, 50)
-  }
-
-  // Stats counter observer
-  const statsSection = document.querySelector('.stats-section')
-  if (statsSection) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !statsVisible.value) {
-          statsVisible.value = true
-          livesCounter.animate()
-          fundsCounter.animate()
-          disastersCounter.animate()
-          volunteersCounter.animate()
-        }
-      },
-      { threshold: 0.3 }
-    )
-    observer.observe(statsSection)
-  }
-})
 </script>
 
 <template>
@@ -123,32 +83,24 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section border-b border-surface-200 bg-white py-8 sm:py-12">
+    <!-- Stats Section - Static values to prevent CLS -->
+    <section class="border-b border-surface-200 bg-white py-8 sm:py-12">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 gap-4 sm:gap-8 md:grid-cols-4">
-          <div class="scroll-animate stagger-1 text-center">
-            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">
-              {{ livesCounter.currentValue.value.toLocaleString() }}+
-            </p>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">50,000+</p>
             <p class="mt-1 text-xs text-surface-600 sm:text-sm">Lives Saved</p>
           </div>
-          <div class="scroll-animate stagger-2 text-center">
-            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">
-              ${{ fundsCounter.currentValue.value }}M+
-            </p>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">$12M+</p>
             <p class="mt-1 text-xs text-surface-600 sm:text-sm">Funds Raised</p>
           </div>
-          <div class="scroll-animate stagger-3 text-center">
-            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">
-              {{ disastersCounter.currentValue.value }}+
-            </p>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">100+</p>
             <p class="mt-1 text-xs text-surface-600 sm:text-sm">Disasters Responded</p>
           </div>
-          <div class="scroll-animate stagger-4 text-center">
-            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">
-              {{ volunteersCounter.currentValue.value.toLocaleString() }}+
-            </p>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-primary-600 sm:text-3xl md:text-4xl">5,000+</p>
             <p class="mt-1 text-xs text-surface-600 sm:text-sm">Volunteers</p>
           </div>
         </div>
@@ -156,25 +108,24 @@ onMounted(() => {
     </section>
 
     <!-- Active Disasters -->
-    <section class="content-auto py-12 sm:py-16 lg:py-24">
+    <section class="py-12 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="scroll-animate flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 class="text-2xl font-bold text-surface-900 sm:text-3xl">Active Disasters</h2>
             <p class="mt-1 text-sm text-surface-600 sm:mt-2 sm:text-base">Current emergencies requiring immediate support</p>
           </div>
-          <RouterLink to="/disasters" class="link-hover text-sm text-primary-600 hover:text-primary-700 sm:text-base">
+          <RouterLink to="/disasters" class="text-sm text-primary-600 hover:text-primary-700 sm:text-base">
             View all →
           </RouterLink>
         </div>
 
         <div class="mt-6 grid gap-4 sm:mt-8 sm:gap-5 sm:grid-cols-2 lg:mt-10 lg:gap-6 lg:grid-cols-3">
           <RouterLink
-            v-for="(disaster, index) in activeDisasters"
+            v-for="disaster in activeDisasters"
             :key="disaster.id"
             :to="`/disasters/${disaster.id}`"
-            class="scroll-animate card-hover group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm active:scale-[0.98] sm:rounded-2xl"
-            :class="`stagger-${index + 1}`"
+            class="group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm sm:rounded-2xl"
           >
             <div class="relative aspect-[2/1] overflow-hidden">
               <img
@@ -206,7 +157,7 @@ onMounted(() => {
                 <span>{{ disaster.disaster_type.icon }}</span>
                 <span>{{ disaster.disaster_type.name }}</span>
               </div>
-              <h3 class="mt-1.5 text-base font-semibold text-surface-900 transition-colors group-hover:text-primary-600 sm:mt-2 sm:text-lg">
+              <h3 class="mt-1.5 text-base font-semibold text-surface-900 sm:mt-2 sm:text-lg">
                 {{ disaster.title }}
               </h3>
               <p class="mt-1.5 line-clamp-2 text-xs text-surface-600 sm:mt-2 sm:text-sm">
@@ -222,9 +173,9 @@ onMounted(() => {
     </section>
 
     <!-- Featured Campaign -->
-    <section v-if="featuredCampaign" class="content-auto bg-surface-100 py-10 sm:py-16 lg:py-24">
+    <section v-if="featuredCampaign" class="bg-surface-100 py-10 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="scroll-animate scale-up overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
+        <div class="overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
           <div class="grid lg:grid-cols-2">
             <div class="relative aspect-[3/2] lg:aspect-auto lg:h-full">
               <img
@@ -267,7 +218,7 @@ onMounted(() => {
                 </div>
                 <div class="mt-3 h-2.5 overflow-hidden rounded-full bg-surface-200 sm:mt-4 sm:h-3">
                   <div
-                    class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600 transition-all duration-1000 ease-out"
+                    class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600"
                     :style="{ width: `${featuredCampaign.progress_percentage}%` }"
                   />
                 </div>
@@ -278,7 +229,7 @@ onMounted(() => {
 
               <RouterLink
                 :to="`/campaigns/${featuredCampaign.id}`"
-                class="btn-hover mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg active:scale-[0.98] sm:mt-6 sm:w-auto sm:px-8 sm:py-3.5 lg:mt-8 lg:py-4 lg:text-lg"
+                class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg sm:mt-6 sm:w-auto sm:px-8 sm:py-3.5 lg:mt-8 lg:py-4 lg:text-lg"
               >
                 Donate Now
               </RouterLink>
@@ -289,9 +240,9 @@ onMounted(() => {
     </section>
 
     <!-- How We Help Section -->
-    <section class="content-auto py-10 sm:py-16 lg:py-24">
+    <section class="py-10 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="scroll-animate text-center">
+        <div class="text-center">
           <h2 class="text-xl font-bold text-surface-900 sm:text-2xl lg:text-3xl">How We Help</h2>
           <p class="mt-2 text-sm text-surface-600 sm:mt-3 sm:text-base lg:mt-4 lg:text-lg">
             Our comprehensive approach to disaster relief
@@ -299,7 +250,7 @@ onMounted(() => {
         </div>
 
         <div class="mt-8 grid gap-4 grid-cols-2 sm:mt-10 sm:gap-6 lg:mt-12 lg:grid-cols-4 lg:gap-8">
-          <div class="scroll-animate card-hover stagger-1 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+          <div class="rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               🚑
             </div>
@@ -309,7 +260,7 @@ onMounted(() => {
             </p>
           </div>
 
-          <div class="scroll-animate card-hover stagger-2 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+          <div class="rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               🏠
             </div>
@@ -319,7 +270,7 @@ onMounted(() => {
             </p>
           </div>
 
-          <div class="scroll-animate card-hover stagger-3 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+          <div class="rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-success-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               🍽️
             </div>
@@ -329,7 +280,7 @@ onMounted(() => {
             </p>
           </div>
 
-          <div class="scroll-animate card-hover stagger-4 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+          <div class="rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-warning-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               💊
             </div>
@@ -343,22 +294,22 @@ onMounted(() => {
     </section>
 
     <!-- CTA Section -->
-    <section class="content-auto bg-primary-900 py-10 sm:py-14 lg:py-20">
+    <section class="bg-primary-900 py-10 sm:py-14 lg:py-20">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 class="scroll-animate text-xl font-bold text-white sm:text-2xl lg:text-3xl xl:text-4xl">Ready to Make a Difference?</h2>
-        <p class="scroll-animate stagger-1 mx-auto mt-2 max-w-2xl text-sm text-primary-100 sm:mt-3 sm:text-base lg:mt-4 lg:text-lg">
+        <h2 class="text-xl font-bold text-white sm:text-2xl lg:text-3xl xl:text-4xl">Ready to Make a Difference?</h2>
+        <p class="mx-auto mt-2 max-w-2xl text-sm text-primary-100 sm:mt-3 sm:text-base lg:mt-4 lg:text-lg">
           Whether you donate, volunteer, or spread awareness, your contribution saves lives.
         </p>
-        <div class="scroll-animate stagger-2 mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4">
+        <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4">
           <RouterLink
             to="/donate"
-            class="btn-hover rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
+            class="rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
           >
             Donate Now
           </RouterLink>
           <RouterLink
             to="/volunteer"
-            class="btn-hover rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
+            class="rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
           >
             Volunteer
           </RouterLink>
@@ -368,24 +319,3 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-@keyframes hero-slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-animate {
-  animation: hero-slide-up 0.6s ease-out forwards;
-}
-
-.hero-delay-1 { animation-delay: 0s; }
-.hero-delay-2 { animation-delay: 0.15s; opacity: 0; }
-.hero-delay-3 { animation-delay: 0.3s; opacity: 0; }
-.hero-delay-4 { animation-delay: 0.45s; opacity: 0; }
-</style>
