@@ -28,7 +28,7 @@ watch(() => route.path, () => {
 <template>
   <div class="flex min-h-screen flex-col bg-surface-50">
     <!-- Header -->
-    <header class="sticky top-0 z-50 border-b border-surface-200 bg-white shadow-sm">
+    <header class="app-header sticky top-0 z-50 border-b border-surface-200 bg-white shadow-sm">
       <div class="mx-auto max-w-7xl px-4">
         <div class="flex h-16 items-center justify-between">
           <!-- Logo -->
@@ -132,14 +132,14 @@ watch(() => route.path, () => {
     </header>
 
     <!-- Main Content -->
-    <main id="main-content" role="main" class="flex-1">
+    <main id="main-content" role="main" class="app-main flex-1">
       <RouterView v-slot="{ Component }">
         <component :is="Component" />
       </RouterView>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-surface-200 bg-surface-900" role="contentinfo">
+    <footer class="app-footer border-t border-surface-200 bg-surface-900" role="contentinfo">
       <div class="mx-auto max-w-7xl px-4 py-8 sm:py-10 lg:py-12">
         <!-- Mobile: Compact 2-column layout -->
         <div class="grid gap-6 grid-cols-2 sm:gap-8 lg:grid-cols-5">
