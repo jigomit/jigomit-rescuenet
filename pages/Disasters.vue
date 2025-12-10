@@ -35,11 +35,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1280&q=40&auto=format&fm=webp&fit=crop"
-          alt="Flood disaster scene"
+          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          alt="Flood disaster scene showing affected community"
           class="h-full w-full object-cover opacity-30"
-          width="1280"
-          height="720"
+          width="1024"
+          height="576"
           loading="eager"
           fetchpriority="high"
           decoding="async"

@@ -61,9 +61,14 @@ const team = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80"
-          alt="Humanitarian workers helping children"
+          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          alt="Humanitarian workers helping children affected by disasters"
           class="h-full w-full object-cover opacity-30"
+          width="1024"
+          height="576"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
@@ -113,8 +118,8 @@ const team = [
             </div>
           </div>
           <div class="flex flex-row gap-4">
-            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=80" alt="Relief workers in action" class="w-1/2 rounded-xl object-cover" />
-            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80" alt="Food distribution aid" class="w-1/2 rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=60&auto=format&fm=webp&fit=crop" alt="Relief workers providing aid in disaster affected areas" class="w-1/2 rounded-xl object-cover" width="400" height="300" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=60&auto=format&fm=webp&fit=crop" alt="Volunteers distributing food to disaster victims" class="w-1/2 rounded-xl object-cover" width="400" height="300" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

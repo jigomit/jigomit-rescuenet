@@ -32,9 +32,9 @@ watch(() => route.path, () => {
       <div class="mx-auto max-w-7xl px-4">
         <div class="flex h-16 items-center justify-between">
           <!-- Logo -->
-          <RouterLink to="/" class="flex items-center gap-2.5">
+          <RouterLink to="/" class="flex items-center gap-2.5" aria-label="RescueNet - Go to homepage">
             <div class="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 shadow-md">
-              <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="currentColor" opacity="0.2"/>
                 <path d="M11 8h2v3h3v2h-3v3h-2v-3H8v-2h3V8z" fill="currentColor"/>
               </svg>
@@ -49,7 +49,7 @@ watch(() => route.path, () => {
           </RouterLink>
 
           <!-- Desktop Navigation -->
-          <nav class="hidden items-center gap-1 lg:flex">
+          <nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
             <RouterLink
               v-for="item in navItems"
               :key="item.to"
@@ -76,13 +76,17 @@ watch(() => route.path, () => {
             <!-- Mobile Menu Button -->
             <button
               type="button"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-surface-600 hover:bg-surface-100 lg:hidden"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-surface-600 hover:bg-surface-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 lg:hidden"
+              :aria-expanded="mobileMenuOpen"
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu"
               @click="mobileMenuOpen = !mobileMenuOpen"
             >
-              <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span class="sr-only">{{ mobileMenuOpen ? 'Close menu' : 'Open menu' }}</span>
+              <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-              <svg v-else class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg v-else class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -93,9 +97,10 @@ watch(() => route.path, () => {
       <!-- Mobile Navigation Menu -->
       <div
         v-show="mobileMenuOpen"
+        id="mobile-menu"
         class="border-t border-surface-200 bg-white lg:hidden"
       >
-        <nav class="mx-auto max-w-7xl px-4 py-4">
+        <nav class="mx-auto max-w-7xl px-4 py-4" aria-label="Mobile navigation">
           <div class="space-y-1">
             <RouterLink
               v-for="item in navItems"
@@ -128,7 +133,7 @@ watch(() => route.path, () => {
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content" role="main">
       <RouterView v-slot="{ Component }">
         <Transition name="page" mode="out-in">
           <component :is="Component" />
@@ -137,7 +142,7 @@ watch(() => route.path, () => {
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-surface-200 bg-surface-900">
+    <footer class="border-t border-surface-200 bg-surface-900" role="contentinfo">
       <div class="mx-auto max-w-7xl px-4 py-10 sm:py-12">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <!-- Brand -->
@@ -201,46 +206,52 @@ watch(() => route.path, () => {
     </footer>
 
     <!-- Mobile Bottom Navigation -->
-    <nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-surface-200 bg-white shadow-lg sm:hidden safe-bottom">
+    <nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-surface-200 bg-white shadow-lg sm:hidden safe-bottom" aria-label="Mobile bottom navigation">
       <div class="flex items-center justify-around py-2 pb-safe">
         <RouterLink
           to="/"
           class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
           :class="isActive('/') ? 'text-primary-600' : 'text-surface-500'"
+          :aria-current="isActive('/') ? 'page' : undefined"
         >
-          <span class="text-xl">🏠</span>
+          <span class="text-xl" aria-hidden="true">🏠</span>
           <span>Home</span>
         </RouterLink>
         <RouterLink
           to="/disasters"
           class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
           :class="isActive('/disasters') ? 'text-primary-600' : 'text-surface-500'"
+          :aria-current="isActive('/disasters') ? 'page' : undefined"
         >
-          <span class="text-xl">🚨</span>
+          <span class="text-xl" aria-hidden="true">🚨</span>
           <span>Disasters</span>
         </RouterLink>
         <RouterLink
           to="/donate"
           class="flex flex-col items-center gap-1 px-3 py-2"
+          aria-label="Donate"
         >
-          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-600 text-xl text-white shadow-lg">
+          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-600 text-xl text-white shadow-lg" aria-hidden="true">
             ❤️
           </span>
+          <span class="sr-only">Donate</span>
         </RouterLink>
         <RouterLink
           to="/campaigns"
           class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
           :class="isActive('/campaigns') ? 'text-primary-600' : 'text-surface-500'"
+          :aria-current="isActive('/campaigns') ? 'page' : undefined"
         >
-          <span class="text-xl">💰</span>
+          <span class="text-xl" aria-hidden="true">💰</span>
           <span>Campaigns</span>
         </RouterLink>
         <RouterLink
           to="/volunteer"
           class="flex flex-col items-center gap-1 px-3 py-2 text-xs font-medium transition-colors"
           :class="isActive('/volunteer') ? 'text-primary-600' : 'text-surface-500'"
+          :aria-current="isActive('/volunteer') ? 'page' : undefined"
         >
-          <span class="text-xl">🤝</span>
+          <span class="text-xl" aria-hidden="true">🤝</span>
           <span>Volunteer</span>
         </RouterLink>
       </div>

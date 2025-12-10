@@ -160,9 +160,14 @@ const contactInfo = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=1600&q=80"
-          alt="Emergency response team"
+          src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          alt="Emergency response team coordinating disaster relief efforts"
           class="h-full w-full object-cover opacity-20"
+          width="1024"
+          height="576"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -320,9 +325,13 @@ const contactInfo = [
             <!-- Map Placeholder -->
             <div class="overflow-hidden rounded-xl">
               <img
-                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=80"
-                alt="World map showing global operations"
+                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=640&q=60&auto=format&fm=webp&fit=crop"
+                alt="World map showing RescueNet global operations and disaster response locations"
                 class="h-64 w-full object-cover"
+                width="640"
+                height="256"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

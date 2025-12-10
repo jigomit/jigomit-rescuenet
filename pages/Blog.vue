@@ -74,11 +74,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1280&q=40&auto=format&fm=webp&fit=crop"
-          alt="Disaster relief news coverage"
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          alt="News coverage and updates about disaster relief efforts"
           class="h-full w-full object-cover opacity-20"
-          width="1280"
-          height="720"
+          width="1024"
+          height="576"
           loading="eager"
           fetchpriority="high"
           decoding="async"

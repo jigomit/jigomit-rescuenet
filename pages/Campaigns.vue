@@ -30,11 +30,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1280&q=40&auto=format&fm=webp&fit=crop"
-          alt="Relief workers providing aid"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          alt="Relief workers providing aid to disaster affected communities"
           class="h-full w-full object-cover opacity-20"
-          width="1280"
-          height="720"
+          width="1024"
+          height="576"
           loading="eager"
           fetchpriority="high"
           decoding="async"

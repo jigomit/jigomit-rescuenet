@@ -266,9 +266,14 @@ const closeSuccess = () => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1600&q=80"
-          alt="Food and supplies distribution"
+          src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          alt="Volunteers distributing food and supplies to disaster victims"
           class="h-full w-full object-cover opacity-20"
+          width="1024"
+          height="576"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -583,7 +588,7 @@ const closeSuccess = () => {
             <div class="rounded-2xl bg-surface-100 p-6">
               <p class="text-surface-600 italic">"I've been donating monthly to RescueNet for 2 years. Knowing that 100% goes directly to relief efforts gives me confidence my contribution matters."</p>
               <div class="mt-4 flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Donor" class="h-10 w-10 rounded-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=60&auto=format&fm=webp&fit=crop" alt="Profile photo of a recent donor" class="h-10 w-10 rounded-full object-cover" width="40" height="40" loading="lazy" decoding="async" />
                 <div>
                   <p class="font-medium text-surface-900">Emily S.</p>
                   <p class="text-sm text-surface-500">Monthly Donor since 2023</p>
