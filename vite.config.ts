@@ -44,9 +44,12 @@ export default defineConfig({
         drop_debugger: true,
         passes: 3,
         pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+        dead_code: true,
+        unused: true,
       },
       mangle: {
         safari10: true,
+        toplevel: true,
       },
       format: {
         comments: false,
@@ -54,16 +57,14 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('vue')) {
-              return 'vendor'
-            }
-          }
+        manualChunks: {
+          'vue-core': ['vue'],
+          'vue-router': ['vue-router'],
         },
       },
     },
     chunkSizeWarningLimit: 500,
     reportCompressedSize: false,
+    sourcemap: false,
   },
 })

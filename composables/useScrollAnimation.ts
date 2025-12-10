@@ -35,7 +35,12 @@ export function useScrollAnimation() {
   }
 
   onMounted(() => {
-    initObserver()
+    // Defer observer initialization to reduce TBT
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => initObserver(), { timeout: 100 })
+    } else {
+      setTimeout(() => initObserver(), 0)
+    }
   })
 
   onUnmounted(() => {
