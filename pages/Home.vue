@@ -58,11 +58,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=20&auto=format&fm=webp&fit=crop"
           alt="Volunteers providing humanitarian aid to disaster victims"
           class="h-full w-full object-cover opacity-20"
-          width="1024"
-          height="576"
+          width="800"
+          height="450"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -163,8 +163,8 @@ onMounted(() => {
                 :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="480"
-                height="320"
+                width="400"
+                height="267"
                 loading="lazy"
                 decoding="async"
               />
@@ -213,8 +213,8 @@ onMounted(() => {
                 :src="featuredCampaign.image_url"
                 :alt="featuredCampaign.title"
                 class="h-full w-full object-cover"
-                width="480"
-                height="320"
+                width="400"
+                height="267"
                 loading="lazy"
                 decoding="async"
               />

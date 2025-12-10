@@ -160,11 +160,11 @@ const contactInfo = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=800&q=20&auto=format&fm=webp&fit=crop"
           alt="Emergency response team coordinating disaster relief efforts"
           class="h-full w-full object-cover opacity-20"
-          width="1024"
-          height="576"
+          width="800"
+          height="450"
           loading="eager"
           fetchpriority="high"
           decoding="async"

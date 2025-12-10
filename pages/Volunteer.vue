@@ -540,11 +540,11 @@ const availabilityOptions = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1024&q=30&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=20&auto=format&fm=webp&fit=crop"
           alt="Volunteers working together to provide disaster relief assistance"
           class="h-full w-full object-cover opacity-30"
-          width="1024"
-          height="576"
+          width="800"
+          height="450"
           loading="eager"
           fetchpriority="high"
           decoding="async"
