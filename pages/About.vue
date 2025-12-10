@@ -61,11 +61,11 @@ const team = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=20&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
           alt="Humanitarian workers helping children affected by disasters"
           class="h-full w-full object-cover opacity-30"
-          width="800"
-          height="450"
+          width="640"
+          height="360"
           loading="eager"
           fetchpriority="high"
           decoding="async"

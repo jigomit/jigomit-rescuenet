@@ -74,11 +74,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=20&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=640&q=10&auto=format&fm=webp&fit=crop"
           alt="News coverage and updates about disaster relief efforts"
           class="h-full w-full object-cover opacity-20"
-          width="800"
-          height="450"
+          width="640"
+          height="360"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -86,16 +86,13 @@ onMounted(() => {
         <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
       </div>
 
-      <!-- Floating elements - hidden on mobile -->
-      <div class="absolute right-10 top-10 hidden h-32 w-32 rounded-full bg-accent-500/10 blur-3xl md:block float"></div>
-      <div class="absolute left-20 bottom-10 hidden h-24 w-24 rounded-full bg-primary-400/10 blur-2xl md:block float" style="animation-delay: 1s;"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div class="text-center">
-          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl" style="animation: fade-slide-up 0.6s ease-out forwards;">
+          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Blog
           </h1>
-          <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100" style="animation: fade-slide-up 0.6s ease-out 0.2s forwards; opacity: 0;">
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
             Stories, tips & updates from our rescue community
           </p>
         </div>
@@ -166,11 +163,11 @@ onMounted(() => {
               <!-- Image -->
               <div class="relative h-48 overflow-hidden">
                 <img
-                  :src="post.image_url + '?w=400&q=50&auto=format&fm=webp&fit=crop'"
+                  :src="post.image_url + '?w=320&q=40&auto=format&fm=webp&fit=crop'"
                   :alt="post.title"
                   class="h-full w-full object-cover"
-                  width="400"
-                  height="267"
+                  width="320"
+                  height="213"
                   loading="lazy"
                   decoding="async"
                 />

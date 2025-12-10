@@ -35,11 +35,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=20&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
           alt="Flood disaster scene showing affected community"
           class="h-full w-full object-cover opacity-30"
-          width="800"
-          height="450"
+          width="640"
+          height="360"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -47,16 +47,13 @@ onMounted(() => {
         <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
       </div>
 
-      <!-- Floating elements - hidden on mobile -->
-      <div class="absolute right-10 top-10 hidden h-32 w-32 rounded-full bg-accent-500/10 blur-3xl md:block float"></div>
-      <div class="absolute left-20 bottom-10 hidden h-24 w-24 rounded-full bg-primary-400/10 blur-2xl md:block float" style="animation-delay: 1s;"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div class="text-center">
-          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl" style="animation: fade-slide-up 0.6s ease-out forwards;">
+          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Active <span class="text-accent-400">Disasters</span>
           </h1>
-          <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100" style="animation: fade-slide-up 0.6s ease-out 0.2s forwards; opacity: 0;">
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
             Track ongoing disasters and emergency situations worldwide. Stay informed and find ways to help.
           </p>
         </div>
@@ -137,8 +134,8 @@ onMounted(() => {
                 :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="400"
-                height="267"
+                width="320"
+                height="213"
                 loading="lazy"
                 decoding="async"
               />

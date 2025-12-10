@@ -58,11 +58,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=20&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop"
           alt="Volunteers providing humanitarian aid to disaster victims"
           class="h-full w-full object-cover opacity-20"
-          width="800"
-          height="450"
+          width="640"
+          height="360"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -70,10 +70,6 @@ onMounted(() => {
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
 
-      <!-- Floating decorative elements - hidden on mobile for performance -->
-      <div class="absolute left-10 top-20 hidden h-20 w-20 rounded-full bg-accent-500/10 blur-2xl md:block float" style="animation-delay: 0s;"></div>
-      <div class="absolute right-20 top-40 hidden h-32 w-32 rounded-full bg-primary-400/10 blur-3xl md:block float" style="animation-delay: 1s;"></div>
-      <div class="absolute bottom-20 left-1/3 hidden h-24 w-24 rounded-full bg-accent-400/10 blur-2xl md:block float" style="animation-delay: 2s;"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-40">
         <div class="max-w-3xl">
@@ -163,8 +159,8 @@ onMounted(() => {
                 :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="400"
-                height="267"
+                width="320"
+                height="213"
                 loading="lazy"
                 decoding="async"
               />
@@ -213,8 +209,8 @@ onMounted(() => {
                 :src="featuredCampaign.image_url"
                 :alt="featuredCampaign.title"
                 class="h-full w-full object-cover"
-                width="400"
-                height="267"
+                width="320"
+                height="213"
                 loading="lazy"
                 decoding="async"
               />

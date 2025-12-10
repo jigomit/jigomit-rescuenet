@@ -30,27 +30,24 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=20&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
           alt="Relief workers providing aid to disaster affected communities"
           class="h-full w-full object-cover opacity-20"
-          width="800"
-          height="450"
+          width="640"
+          height="360"
           loading="eager"
           fetchpriority="high"
           decoding="async"
         />
       </div>
 
-      <!-- Floating elements - hidden on mobile -->
-      <div class="absolute left-10 top-10 hidden h-24 w-24 rounded-full bg-white/10 blur-2xl md:block float"></div>
-      <div class="absolute right-20 bottom-10 hidden h-32 w-32 rounded-full bg-accent-300/10 blur-3xl md:block float" style="animation-delay: 1.5s;"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div class="text-center">
-          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl" style="animation: fade-slide-up 0.6s ease-out forwards;">
+          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Donation <span class="text-white/80">Campaigns</span>
           </h1>
-          <p class="mx-auto mt-4 max-w-2xl text-lg text-accent-100" style="animation: fade-slide-up 0.6s ease-out 0.2s forwards; opacity: 0;">
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-accent-100">
             Support our active relief efforts. Every donation makes a difference in the lives of those affected by disasters.
           </p>
         </div>
@@ -156,8 +153,8 @@ onMounted(() => {
                 :src="campaign.image_url"
                 :alt="campaign.title"
                 class="h-full w-full object-cover"
-                width="400"
-                height="267"
+                width="320"
+                height="213"
                 loading="lazy"
                 decoding="async"
               />

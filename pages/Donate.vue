@@ -266,11 +266,11 @@ const closeSuccess = () => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=20&auto=format&fm=webp&fit=crop"
+          src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
           alt="Volunteers distributing food and supplies to disaster victims"
           class="h-full w-full object-cover opacity-20"
-          width="800"
-          height="450"
+          width="640"
+          height="360"
           loading="eager"
           fetchpriority="high"
           decoding="async"
