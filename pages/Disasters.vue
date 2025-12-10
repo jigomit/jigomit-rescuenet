@@ -35,11 +35,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1200&q=60&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1920&q=50&auto=format&fm=webp&fit=crop"
           alt="Flood disaster scene"
           class="h-full w-full object-cover opacity-30"
-          width="1200"
-          height="600"
+          width="1920"
+          height="1080"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -134,11 +134,11 @@ onMounted(() => {
           >
             <div class="relative h-48 overflow-hidden">
               <img
-                :src="disaster.image_url + '&auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'"
+                :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="400"
-                height="300"
+                width="640"
+                height="427"
                 loading="lazy"
                 decoding="async"
               />

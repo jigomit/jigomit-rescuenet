@@ -41,7 +41,7 @@ export const disasters: Disaster[] = [
     estimated_affected_people: 850000,
     estimated_damage_usd: 34000000000,
     disaster_type: { id: 1, name: 'Earthquake', icon: '🌍' },
-    image_url: 'https://images.pexels.com/photos/6471926/pexels-photo-6471926.jpeg?w=800',
+    image_url: 'https://images.pexels.com/photos/6471926/pexels-photo-6471926.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1&fm=webp',
   },
   {
     id: 2,
@@ -55,7 +55,7 @@ export const disasters: Disaster[] = [
     estimated_affected_people: 2500000,
     estimated_damage_usd: 5000000000,
     disaster_type: { id: 2, name: 'Flood', icon: '🌊' },
-    image_url: 'https://images.pexels.com/photos/1739855/pexels-photo-1739855.jpeg?w=800',
+    image_url: 'https://images.pexels.com/photos/1739855/pexels-photo-1739855.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1&fm=webp',
   },
   {
     id: 3,
@@ -69,7 +69,7 @@ export const disasters: Disaster[] = [
     estimated_affected_people: 125000,
     estimated_damage_usd: 8500000000,
     disaster_type: { id: 4, name: 'Wildfire', icon: '🔥' },
-    image_url: 'https://images.pexels.com/photos/51951/forest-fire-fire-smoke-conservation-51951.jpeg?w=800',
+    image_url: 'https://images.pexels.com/photos/51951/forest-fire-fire-smoke-conservation-51951.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1&fm=webp',
   },
   {
     id: 4,
@@ -83,7 +83,7 @@ export const disasters: Disaster[] = [
     estimated_affected_people: 450000,
     estimated_damage_usd: 2000000000,
     disaster_type: { id: 3, name: 'Hurricane', icon: '🌀' },
-    image_url: 'https://images.pexels.com/photos/1446076/pexels-photo-1446076.jpeg?w=800',
+    image_url: 'https://images.pexels.com/photos/1446076/pexels-photo-1446076.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1&fm=webp',
   },
   {
     id: 5,
@@ -97,7 +97,7 @@ export const disasters: Disaster[] = [
     estimated_affected_people: 5000000,
     estimated_damage_usd: 1500000000,
     disaster_type: { id: 6, name: 'Drought', icon: '☀️' },
-    image_url: 'https://images.pexels.com/photos/60013/desert-drought-dehydrated-clay-soil-60013.jpeg?w=800',
+    image_url: 'https://images.pexels.com/photos/60013/desert-drought-dehydrated-clay-soil-60013.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1&fm=webp',
   },
 ]
 

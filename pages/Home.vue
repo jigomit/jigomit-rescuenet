@@ -58,11 +58,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=60&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&q=50&auto=format&fm=webp&fit=crop"
           alt="Volunteers providing humanitarian aid"
           class="h-full w-full object-cover opacity-20"
-          width="1200"
-          height="800"
+          width="1920"
+          height="1080"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -160,11 +160,11 @@ onMounted(() => {
           >
             <div class="relative h-48 overflow-hidden">
               <img
-                :src="disaster.image_url + '&auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'"
+                :src="disaster.image_url"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="400"
-                height="300"
+                width="640"
+                height="427"
                 loading="lazy"
                 decoding="async"
               />
@@ -210,11 +210,11 @@ onMounted(() => {
           <div class="grid lg:grid-cols-2">
             <div class="img-zoom relative h-64 lg:h-auto">
               <img
-                :src="featuredCampaign.image_url + '&auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'"
+                :src="featuredCampaign.image_url"
                 :alt="featuredCampaign.title"
                 class="h-full w-full object-cover"
-                width="600"
-                height="400"
+                width="640"
+                height="427"
                 loading="lazy"
                 decoding="async"
               />

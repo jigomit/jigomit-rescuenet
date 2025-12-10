@@ -74,11 +74,11 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=60&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=50&auto=format&fm=webp&fit=crop"
           alt="Disaster relief news coverage"
           class="h-full w-full object-cover opacity-20"
-          width="1200"
-          height="600"
+          width="1920"
+          height="1080"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -166,11 +166,11 @@ onMounted(() => {
               <!-- Image -->
               <div class="relative h-48 overflow-hidden">
                 <img
-                  :src="post.image_url + '?w=400&q=75&auto=format&fit=crop'"
+                  :src="post.image_url + '?w=640&q=75&auto=format&fm=webp&fit=crop'"
                   :alt="post.title"
                   class="h-full w-full object-cover"
-                  width="400"
-                  height="300"
+                  width="640"
+                  height="427"
                   loading="lazy"
                   decoding="async"
                 />
