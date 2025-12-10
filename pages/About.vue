@@ -60,24 +60,28 @@ const team = [
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
-          alt="Humanitarian workers helping children affected by disasters"
-          class="h-full w-full object-cover opacity-30"
-          width="640"
-          height="360"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <img
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=15&auto=format&fm=webp&fit=crop"
+            alt="Humanitarian workers helping children affected by disasters"
+            class="h-full w-full object-cover opacity-30"
+            width="800"
+            height="450"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
-      <div class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="max-w-3xl">
-          <h1 class="text-4xl font-bold text-white sm:text-5xl">
+          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
             About <span class="text-accent-400">RescueNet</span>
           </h1>
-          <p class="mt-6 text-xl text-primary-100">
+          <p class="mt-3 text-sm text-primary-100 sm:mt-4 sm:text-base lg:mt-6 lg:text-xl">
             We are a global humanitarian organization dedicated to providing rapid disaster relief and helping communities rebuild stronger than before.
           </p>
         </div>

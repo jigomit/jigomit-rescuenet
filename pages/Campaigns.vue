@@ -29,25 +29,28 @@ onMounted(() => {
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
-          alt="Relief workers providing aid to disaster affected communities"
-          class="h-full w-full object-cover opacity-20"
-          width="640"
-          height="360"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <img
+            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop"
+            alt="Relief workers providing aid to disaster affected communities"
+            class="h-full w-full object-cover opacity-20"
+            width="800"
+            height="450"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
 
-
-      <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
-          <h1 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
             Donation <span class="text-white/80">Campaigns</span>
           </h1>
-          <p class="mx-auto mt-4 max-w-2xl text-lg text-accent-100">
+          <p class="mx-auto mt-3 max-w-2xl text-sm text-accent-100 sm:mt-4 sm:text-base lg:text-lg">
             Support our active relief efforts. Every donation makes a difference in the lives of those affected by disasters.
           </p>
         </div>

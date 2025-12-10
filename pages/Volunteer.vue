@@ -539,29 +539,33 @@ const availabilityOptions = [
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
-          alt="Volunteers working together to provide disaster relief assistance"
-          class="h-full w-full object-cover opacity-30"
-          width="640"
-          height="360"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <img
+            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop"
+            alt="Volunteers working together to provide disaster relief assistance"
+            class="h-full w-full object-cover opacity-30"
+            width="800"
+            height="450"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
-      <div class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="max-w-3xl">
-          <h1 class="text-4xl font-bold text-white sm:text-5xl">
+          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
             Join Our <span class="text-accent-400">Volunteer</span> Team
           </h1>
-          <p class="mt-6 text-xl text-primary-100">
+          <p class="mt-3 text-sm text-primary-100 sm:mt-4 sm:text-base lg:mt-6 lg:text-xl">
             Make a difference in the lives of disaster-affected communities. Your time and skills can help save lives.
           </p>
           <button
             @click="showForm = true"
-            class="mt-8 rounded-xl bg-accent-600 px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all hover:bg-accent-700 hover:scale-105"
+            class="mt-5 rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg active:scale-[0.98] sm:mt-6 sm:px-6 sm:py-3.5 sm:text-base lg:mt-8 lg:px-8 lg:py-4 lg:text-lg"
           >
             Apply to Volunteer
           </button>

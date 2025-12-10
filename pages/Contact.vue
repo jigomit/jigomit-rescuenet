@@ -159,23 +159,27 @@ const contactInfo = [
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=640w=800&q=20q=10&auto=format&fm=webp&fit=crop"
-          alt="Emergency response team coordinating disaster relief efforts"
-          class="h-full w-full object-cover opacity-20"
-          width="640"
-          height="360"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <img
+            src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=800&q=15&auto=format&fm=webp&fit=crop"
+            alt="Emergency response team coordinating disaster relief efforts"
+            class="h-full w-full object-cover opacity-20"
+            width="800"
+            height="450"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
-      <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
-          <h1 class="text-4xl font-bold text-white sm:text-5xl">
+          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
             Get in <span class="text-accent-400">Touch</span>
           </h1>
-          <p class="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
+          <p class="mx-auto mt-3 max-w-2xl text-sm text-primary-100 sm:mt-4 sm:text-base lg:text-lg">
             Have questions? We're here to help. Reach out to us anytime.
           </p>
         </div>
