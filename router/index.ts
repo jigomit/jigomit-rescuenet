@@ -102,6 +102,15 @@ const router = createRouter({
         description: 'Read this article from RescueNet about disaster relief and humanitarian aid.',
       },
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/pages/NotFound.vue'),
+      meta: {
+        title: 'Page Not Found - RescueNet',
+        description: 'The page you are looking for does not exist.',
+      },
+    },
   ],
   scrollBehavior() {
     return { top: 0 }

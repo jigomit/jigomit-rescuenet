@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <defs>
+    <linearGradient id="appleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="url(#appleGrad)"/>
+
+  <!-- Shield -->
+  <path d="M90 30 L150 50 L150 90 C150 130 125 155 90 170 C55 155 30 130 30 90 L30 50 Z" fill="white" fill-opacity="0.95"/>
+
+  <!-- Cross -->
+  <rect x="80" y="55" width="20" height="60" rx="3" fill="url(#appleGrad)"/>
+  <rect x="60" y="75" width="60" height="20" rx="3" fill="url(#appleGrad)"/>
+
+  <!-- Pulse dot -->
+  <circle cx="140" cy="45" r="12" fill="#f97316"/>
+  <circle cx="140" cy="45" r="7" fill="#fb923c"/>
+  <circle cx="140" cy="45" r="3" fill="white"/>
+</svg>
