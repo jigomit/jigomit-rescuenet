@@ -142,7 +142,7 @@ watch(() => route.path, () => {
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-surface-200 bg-surface-900" role="contentinfo">
+    <footer class="border-t border-surface-200 bg-surface-900" role="contentinfo" style="min-height: 320px;">
       <div class="mx-auto max-w-7xl px-4 py-10 sm:py-12">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <!-- Brand -->
