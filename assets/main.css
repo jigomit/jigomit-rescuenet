@@ -311,24 +311,10 @@ img {
    MOBILE OPTIMIZATIONS
    ======================================== */
 @media (max-width: 640px) {
-    /* Improve touch targets */
-    button, a, input, select, textarea {
-        min-height: 44px;
-    }
-
-    /* Reduce card hover effects on mobile */
-    .card-hover:hover {
-        transform: none;
-    }
-
-    /* Disable pulse glow on mobile for performance */
-    .pulse-glow {
-        animation: none;
-    }
-
-    /* Disable floating animations on mobile */
-    .float {
-        animation: none;
+    /* DISABLE ALL TRANSITIONS/ANIMATIONS on mobile for 100% performance */
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
     }
 
     /* Better text sizing on mobile */
