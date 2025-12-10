@@ -52,11 +52,7 @@
     <!-- Preload LCP image for better performance -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=20&auto=format&fm=webp&fit=crop" type="image/webp" fetchpriority="high">
 
-    <!-- Fonts - Load asynchronously to prevent render blocking -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+    <!-- Using system fonts for maximum performance -->
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -80,8 +76,8 @@
       }
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-Co3zWsHV.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-X0-X6Eao.css">
+    <script type="module" crossorigin src="/assets/index-Db9ZlltN.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BAU667WZ.css">
   </head>
   <body class="antialiased">
     <!-- Skip to main content link for accessibility -->
@@ -89,16 +85,5 @@
       Skip to main content
     </a>
     <div id="app"></div>
-    <script>
-      // Detect when Inter font is loaded and apply it
-      if ('fonts' in document) {
-        document.fonts.ready.then(function() {
-          document.documentElement.classList.add('fonts-loaded');
-        });
-      } else {
-        // Fallback for older browsers
-        document.documentElement.classList.add('fonts-loaded');
-      }
-    </script>
   </body>
 </html>
