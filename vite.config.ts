@@ -16,6 +16,7 @@ export default defineConfig({
   },
   build: {
     cssCodeSplit: true,
+    cssMinify: 'lightningcss',
     modulePreload: {
       polyfill: false,
     },
@@ -25,6 +26,7 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
+        passes: 2,
       },
     },
     rollupOptions: {

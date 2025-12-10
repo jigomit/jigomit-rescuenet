@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect MUST be early in head for maximum benefit -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Primary Meta Tags -->
     <title>RescueNet - Disaster Relief & Humanitarian Aid</title>
@@ -61,22 +66,22 @@
       .from-primary-900{--tw-gradient-from:#1e3a5f}.to-primary-800{--tw-gradient-to:#2d4a6f}
       .text-primary-600{color:#2563eb}.text-accent-400{color:#fb923c}
       .bg-accent-600{background:#ea580c}
-      /* Loading state */
+      /* Loading state - heights must match actual content to prevent CLS */
       .app-skeleton{min-height:100vh;display:flex;flex-direction:column;background:#f8fafc}
       .skeleton-header{height:64px;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
-      .skeleton-main{flex:1}
+      .skeleton-main{flex:1;display:flex;flex-direction:column}
       .skeleton-hero{min-height:450px;background:linear-gradient(135deg,#1e3a5f 0%,#2d4a6f 100%);display:flex;align-items:center;justify-content:center}
       .skeleton-hero-content{text-align:center;padding:24px}
       .skeleton-title{width:280px;max-width:90%;height:36px;background:rgba(255,255,255,0.15);border-radius:8px;margin:0 auto 12px}
       .skeleton-text{width:220px;max-width:80%;height:18px;background:rgba(255,255,255,0.1);border-radius:4px;margin:0 auto 20px}
       .skeleton-btn{width:130px;height:42px;background:rgba(234,88,12,0.6);border-radius:12px;margin:0 auto}
-      .skeleton-footer{background:#1e293b;min-height:220px}
-      @media(min-width:640px){.skeleton-hero{min-height:500px}.skeleton-title{width:350px;height:44px}.skeleton-text{width:280px;height:22px}.skeleton-btn{width:150px;height:48px}}
+      /* Footer skeleton - matches actual footer height: py-10 (80px) + content (~280px on mobile, ~180px on desktop) + border-t (49px) */
+      .skeleton-footer{background:#1e293b;min-height:409px;border-top:1px solid #334155}
+      @media(min-width:640px){.skeleton-hero{min-height:500px}.skeleton-title{width:350px;height:44px}.skeleton-text{width:280px;height:22px}.skeleton-btn{width:150px;height:48px}.skeleton-footer{min-height:277px}}
+      @media(min-width:1024px){.skeleton-footer{min-height:245px}}
     </style>
 
-    <!-- Preconnect to image CDNs - early connection establishment -->
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+    <!-- DNS prefetch as fallback for older browsers -->
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://images.pexels.com">
 
@@ -133,5 +138,14 @@
       </div>
     </div>
     <script type="module" src="/main.ts"></script>
+    <!-- Defer non-critical stylesheet loading -->
+    <script>
+      // Switch print stylesheets to all media after page load
+      window.addEventListener('load', function() {
+        document.querySelectorAll('link[media="print"]').forEach(function(link) {
+          link.media = 'all';
+        });
+      });
+    </script>
   </body>
 </html>
