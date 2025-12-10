@@ -138,71 +138,6 @@ watch(() => route.path, () => {
       </RouterView>
     </main>
 
-    <!-- Footer -->
-    <footer class="app-footer border-t border-surface-200 bg-surface-900" role="contentinfo">
-      <div class="mx-auto max-w-7xl px-4 py-8 sm:py-10 lg:py-12">
-        <!-- Mobile: Compact 2-column layout -->
-        <div class="grid gap-6 grid-cols-2 sm:gap-8 lg:grid-cols-5">
-          <!-- Brand - Full width on mobile -->
-          <div class="col-span-2 lg:col-span-1">
-            <div class="flex items-center gap-2.5">
-              <img
-                src="/logo.svg"
-                alt="RescueNet Logo"
-                class="h-8 w-8 sm:h-10 sm:w-10"
-                width="40"
-                height="40"
-              />
-              <span class="text-lg font-bold text-white sm:text-xl">RescueNet</span>
-            </div>
-            <p class="mt-3 text-xs text-surface-400 sm:mt-4 sm:text-sm max-w-xs">
-              Providing rapid disaster relief and humanitarian aid worldwide.
-            </p>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h3 class="text-sm font-semibold text-white sm:text-base">Quick Links</h3>
-            <ul class="mt-3 space-y-2 text-xs sm:mt-4 sm:text-sm">
-              <li><RouterLink to="/disasters" class="text-surface-400 hover:text-white transition-colors">Active Disasters</RouterLink></li>
-              <li><RouterLink to="/campaigns" class="text-surface-400 hover:text-white transition-colors">Campaigns</RouterLink></li>
-              <li><RouterLink to="/volunteer" class="text-surface-400 hover:text-white transition-colors">Volunteer</RouterLink></li>
-              <li><RouterLink to="/donate" class="text-surface-400 hover:text-white transition-colors">Donate</RouterLink></li>
-            </ul>
-          </div>
-
-          <!-- About -->
-          <div>
-            <h3 class="text-sm font-semibold text-white sm:text-base">About</h3>
-            <ul class="mt-3 space-y-2 text-xs sm:mt-4 sm:text-sm">
-              <li><RouterLink to="/about" class="text-surface-400 hover:text-white transition-colors">Our Mission</RouterLink></li>
-              <li><RouterLink to="/contact" class="text-surface-400 hover:text-white transition-colors">Contact Us</RouterLink></li>
-              <li><RouterLink to="/blog" class="text-surface-400 hover:text-white transition-colors">Blog</RouterLink></li>
-            </ul>
-          </div>
-
-          <!-- Contact - Hidden on small mobile, shown from sm up -->
-          <div class="col-span-2 sm:col-span-1 lg:col-span-1">
-            <h3 class="text-sm font-semibold text-white sm:text-base">Contact</h3>
-            <ul class="mt-3 space-y-2 text-xs text-surface-400 sm:mt-4 sm:text-sm">
-              <li class="flex items-center gap-2">
-                <span>📧</span>
-                <span>contact@rescuenet.org</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span>📞</span>
-                <span>1-800-RESCUE</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-6 border-t border-surface-800 pt-6 text-center text-xs text-surface-500 sm:mt-8 sm:pt-8 sm:text-sm">
-          © 2024 RescueNet. All rights reserved.
-        </div>
-      </div>
-    </footer>
-
     <!-- Mobile Bottom Navigation -->
     <nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-surface-200 bg-white shadow-lg sm:hidden safe-bottom" aria-label="Mobile bottom navigation">
       <div class="flex items-center justify-around py-2 pb-safe">
@@ -258,6 +193,48 @@ watch(() => route.path, () => {
     <!-- Spacer for bottom nav on mobile -->
     <div class="h-20 sm:hidden"></div>
   </div>
+
+  <!-- Footer - Teleported outside #app to prevent CLS -->
+  <Teleport to="#footer-mount">
+    <footer class="bg-surface-900" role="contentinfo">
+      <div class="mx-auto max-w-7xl px-4 py-8 sm:py-10 lg:py-12">
+        <div class="grid gap-6 grid-cols-2 sm:gap-8 lg:grid-cols-5">
+          <div class="col-span-2 lg:col-span-1">
+            <div class="flex items-center gap-2.5">
+              <img src="/logo.svg" alt="RescueNet Logo" class="h-8 w-8 sm:h-10 sm:w-10" width="40" height="40" />
+              <span class="text-lg font-bold text-white sm:text-xl">RescueNet</span>
+            </div>
+            <p class="mt-3 text-xs text-surface-400 sm:mt-4 sm:text-sm max-w-xs">Providing rapid disaster relief and humanitarian aid worldwide.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-white sm:text-base">Quick Links</h3>
+            <ul class="mt-3 space-y-2 text-xs sm:mt-4 sm:text-sm">
+              <li><RouterLink to="/disasters" class="text-surface-400 hover:text-white transition-colors">Active Disasters</RouterLink></li>
+              <li><RouterLink to="/campaigns" class="text-surface-400 hover:text-white transition-colors">Campaigns</RouterLink></li>
+              <li><RouterLink to="/volunteer" class="text-surface-400 hover:text-white transition-colors">Volunteer</RouterLink></li>
+              <li><RouterLink to="/donate" class="text-surface-400 hover:text-white transition-colors">Donate</RouterLink></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-white sm:text-base">About</h3>
+            <ul class="mt-3 space-y-2 text-xs sm:mt-4 sm:text-sm">
+              <li><RouterLink to="/about" class="text-surface-400 hover:text-white transition-colors">Our Mission</RouterLink></li>
+              <li><RouterLink to="/contact" class="text-surface-400 hover:text-white transition-colors">Contact Us</RouterLink></li>
+              <li><RouterLink to="/blog" class="text-surface-400 hover:text-white transition-colors">Blog</RouterLink></li>
+            </ul>
+          </div>
+          <div class="col-span-2 sm:col-span-1 lg:col-span-1">
+            <h3 class="text-sm font-semibold text-white sm:text-base">Contact</h3>
+            <ul class="mt-3 space-y-2 text-xs text-surface-400 sm:mt-4 sm:text-sm">
+              <li class="flex items-center gap-2"><span>📧</span><span>contact@rescuenet.org</span></li>
+              <li class="flex items-center gap-2"><span>📞</span><span>1-800-RESCUE</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 border-t border-surface-800 pt-6 text-center text-xs text-surface-500 sm:mt-8 sm:pt-8 sm:text-sm">© 2024 RescueNet. All rights reserved.</div>
+      </div>
+    </footer>
+  </Teleport>
 </template>
 
 <style>
