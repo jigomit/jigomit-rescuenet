@@ -38,20 +38,21 @@
     <style>
       *,*::before,*::after{box-sizing:border-box}
       html{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
-      body{margin:0;min-height:100vh;background:#1e3a5f}
+      body{margin:0;min-height:100vh;background:#f8fafc}
       .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
       #app{min-height:100vh;display:flex;flex-direction:column}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-      /* Loading skeleton */
-      .app-skeleton{min-height:100vh;background:linear-gradient(135deg,#1e3a5f 0%,#2d4a6f 50%,#1e3a5f 100%);display:flex;flex-direction:column}
-      .skeleton-nav{height:64px;background:rgba(255,255,255,0.05);display:flex;align-items:center;padding:0 16px}
-      .skeleton-logo{width:120px;height:32px;background:rgba(255,255,255,0.1);border-radius:8px}
-      .skeleton-hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:48px 16px;text-align:center}
-      .skeleton-title{width:80%;max-width:500px;height:48px;background:rgba(255,255,255,0.15);border-radius:8px;margin-bottom:16px}
-      .skeleton-subtitle{width:60%;max-width:350px;height:24px;background:rgba(255,255,255,0.1);border-radius:6px;margin-bottom:24px}
-      .skeleton-btn{width:150px;height:48px;background:rgba(251,146,60,0.6);border-radius:12px}
-      .app-skeleton{animation:skeleton-fade 1.5s ease-in-out infinite alternate}
-      @keyframes skeleton-fade{from{opacity:0.8}to{opacity:1}}
+      /* Loading skeleton - matches exact final layout */
+      .app-skeleton{min-height:100vh;display:flex;flex-direction:column;background:#f8fafc}
+      .skeleton-header{height:64px;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50}
+      .skeleton-main{flex:1;display:flex;flex-direction:column}
+      .skeleton-hero{min-height:500px;background:linear-gradient(135deg,#1e3a5f 0%,#2d4a6f 100%);display:flex;align-items:center;justify-content:center}
+      .skeleton-hero-content{text-align:center;padding:24px}
+      .skeleton-title{width:300px;height:40px;background:rgba(255,255,255,0.2);border-radius:8px;margin:0 auto 16px}
+      .skeleton-text{width:200px;height:20px;background:rgba(255,255,255,0.1);border-radius:4px;margin:0 auto 24px}
+      .skeleton-btn{width:140px;height:44px;background:rgba(251,146,60,0.7);border-radius:12px;margin:0 auto}
+      .skeleton-footer{background:#1e293b;padding:40px 16px;min-height:200px}
+      @media(min-width:640px){.skeleton-footer{min-height:180px}}
     </style>
 
     <!-- Preconnect to image CDNs -->
@@ -87,8 +88,8 @@
       }
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-D9r4ZORF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BOKPKLN2.css">
+    <script type="module" crossorigin src="/assets/index-ugjdcJek.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BhitB9Ia.css">
   </head>
   <body class="antialiased">
     <!-- Skip to main content link for accessibility -->
@@ -96,16 +97,19 @@
       Skip to main content
     </a>
     <div id="app">
-      <!-- Loading skeleton - replaced by Vue when app mounts -->
+      <!-- Loading skeleton - matches exact final layout to prevent CLS -->
       <div class="app-skeleton">
-        <div class="skeleton-nav">
-          <div class="skeleton-logo"></div>
-        </div>
-        <div class="skeleton-hero">
-          <div class="skeleton-title"></div>
-          <div class="skeleton-subtitle"></div>
-          <div class="skeleton-btn"></div>
-        </div>
+        <header class="skeleton-header"></header>
+        <main class="skeleton-main">
+          <div class="skeleton-hero">
+            <div class="skeleton-hero-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-text"></div>
+              <div class="skeleton-btn"></div>
+            </div>
+          </div>
+        </main>
+        <footer class="skeleton-footer"></footer>
       </div>
     </div>
   </body>
