@@ -14,4 +14,17 @@ export default defineConfig({
     port: 3000,
     open: true,
   },
+  build: {
+    cssCodeSplit: true,
+    modulePreload: {
+      polyfill: false,
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['vue', 'vue-router'],
+        },
+      },
+    },
+  },
 })
