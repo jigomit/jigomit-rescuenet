@@ -26,15 +26,28 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        passes: 2,
+        passes: 3,
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+      },
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
       },
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['vue', 'vue-router'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('vue')) {
+              return 'vendor'
+            }
+          }
         },
       },
     },
+    chunkSizeWarningLimit: 500,
+    reportCompressedSize: false,
   },
 })

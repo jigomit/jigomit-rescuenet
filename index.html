@@ -76,9 +76,6 @@
     <!-- Preload LCP image for better performance -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop" type="image/webp" fetchpriority="high">
 
-    <!-- Modulepreload for critical JavaScript chunks -->
-    <link rel="modulepreload" href="/main.ts">
-
     <!-- Using system fonts for maximum performance -->
 
     <!-- Structured Data - Organization -->
@@ -153,14 +150,5 @@
     </a>
     <div id="app"></div>
     <script type="module" src="/main.ts"></script>
-    <!-- Defer non-critical stylesheet loading -->
-    <script>
-      // Switch print stylesheets to all media after page load
-      window.addEventListener('load', function() {
-        document.querySelectorAll('link[media="print"]').forEach(function(link) {
-          link.media = 'all';
-        });
-      });
-    </script>
   </body>
 </html>
