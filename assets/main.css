@@ -211,24 +211,12 @@
     transform: scale(1.1);
 }
 
-/* Gradient text animation */
+/* Gradient text - static for performance */
 .gradient-text {
-    background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500), var(--color-primary-500));
-    background-size: 200% auto;
+    background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
-}
-
-/* Floating animation */
-.float {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Pulse glow for CTAs */
-.pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
 }
 
 /* ========================================
@@ -287,14 +275,9 @@ html {
     contain-intrinsic-size: auto 500px;
 }
 
-/* Use GPU acceleration for animations */
-.card-hover,
-.btn-hover,
-.img-zoom img,
-.float {
+/* GPU acceleration - minimal for better performance */
+.img-zoom img {
     will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
 }
 
 /* Optimize image rendering */

@@ -54,46 +54,64 @@ onMounted(() => {
 
 <template>
   <div>
-    <!-- Hero Section - min-height matches skeleton for CLS prevention -->
-    <section class="relative min-h-[450px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:min-h-[500px]">
+    <!-- Hero Section - Optimized for mobile/tablet/desktop with responsive images -->
+    <section class="relative min-h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:min-h-[450px] lg:min-h-[550px]">
       <div class="absolute inset-0" aria-hidden="true">
-        <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop"
-          alt=""
-          class="h-full w-full object-cover opacity-20"
-          width="800"
-          height="450"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          style="content-visibility: auto; contain-intrinsic-size: 800px 450px;"
-        />
+        <picture>
+          <!-- Mobile: smaller image, lower quality for faster load -->
+          <source
+            media="(max-width: 639px)"
+            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop"
+            type="image/webp"
+          />
+          <!-- Tablet: medium image -->
+          <source
+            media="(max-width: 1023px)"
+            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1024&q=12&auto=format&fm=webp&fit=crop"
+            type="image/webp"
+          />
+          <!-- Desktop: larger image -->
+          <source
+            media="(min-width: 1024px)"
+            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&q=15&auto=format&fm=webp&fit=crop"
+            type="image/webp"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=12&auto=format&fm=webp&fit=crop"
+            alt=""
+            class="h-full w-full object-cover opacity-20"
+            width="800"
+            height="450"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       </div>
 
-
-      <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-40">
+      <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-32">
         <div class="max-w-3xl">
-          <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             <span>When Disaster Strikes,</span>
-            <span class="block text-accent-400 mt-2">We Respond</span>
+            <span class="block text-accent-400 mt-1 sm:mt-2">We Respond</span>
           </h1>
-          <p class="mt-4 text-base text-primary-100 sm:mt-6 sm:text-lg md:text-xl">
+          <p class="mt-3 text-sm text-primary-100 sm:mt-4 sm:text-base md:text-lg lg:text-xl max-w-2xl">
             RescueNet provides rapid humanitarian aid to communities affected by natural disasters. Join us in saving lives and rebuilding hope.
           </p>
-          <div class="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+          <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
             <RouterLink
               to="/donate"
-              class="btn-hover pulse-glow inline-flex items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-accent-500/30 transition-all hover:bg-accent-700 hover:shadow-accent-500/50 sm:px-8 sm:py-4 sm:text-lg"
+              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
             >
               Donate Now
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </RouterLink>
             <RouterLink
               to="/volunteer"
-              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 sm:px-8 sm:py-4 sm:text-lg"
+              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
             >
               Become a Volunteer
             </RouterLink>
@@ -147,28 +165,28 @@ onMounted(() => {
           </RouterLink>
         </div>
 
-        <div class="mt-6 grid gap-4 sm:mt-10 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-6 grid gap-4 sm:mt-8 sm:gap-5 sm:grid-cols-2 lg:mt-10 lg:gap-6 lg:grid-cols-3">
           <RouterLink
             v-for="(disaster, index) in activeDisasters"
             :key="disaster.id"
             :to="`/disasters/${disaster.id}`"
-            class="scroll-animate card-hover img-zoom group overflow-hidden rounded-2xl border border-surface-200 bg-white shadow-sm"
+            class="scroll-animate card-hover group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm active:scale-[0.98] sm:rounded-2xl"
             :class="`stagger-${index + 1}`"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative h-40 overflow-hidden sm:h-44 lg:h-48">
               <img
-                :src="disaster.image_url"
+                :src="`${disaster.image_url}&w=400&q=60&auto=format&fm=webp`"
                 :alt="disaster.title"
-                class="h-full w-full object-cover"
-                width="320"
-                height="213"
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                width="400"
+                height="192"
                 loading="lazy"
                 decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div class="absolute bottom-4 left-4">
+              <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                 <span
-                  class="rounded-full px-3 py-1 text-xs font-semibold uppercase transition-transform hover:scale-105"
+                  class="rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase sm:px-3 sm:py-1 sm:text-xs"
                   :class="{
                     'bg-red-500 text-white': disaster.severity === 'critical',
                     'bg-orange-500 text-white': disaster.severity === 'high',
@@ -180,18 +198,18 @@ onMounted(() => {
                 </span>
               </div>
             </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 text-sm text-surface-500">
+            <div class="p-4 sm:p-5 lg:p-6">
+              <div class="flex items-center gap-2 text-xs text-surface-500 sm:text-sm">
                 <span>{{ disaster.disaster_type.icon }}</span>
                 <span>{{ disaster.disaster_type.name }}</span>
               </div>
-              <h3 class="mt-2 text-lg font-semibold text-surface-900 transition-colors group-hover:text-primary-600">
+              <h3 class="mt-1.5 text-base font-semibold text-surface-900 transition-colors group-hover:text-primary-600 sm:mt-2 sm:text-lg">
                 {{ disaster.title }}
               </h3>
-              <p class="mt-2 line-clamp-2 text-sm text-surface-600">
+              <p class="mt-1.5 line-clamp-2 text-xs text-surface-600 sm:mt-2 sm:text-sm">
                 {{ disaster.description }}
               </p>
-              <p class="mt-4 text-sm text-surface-500">
+              <p class="mt-3 text-xs text-surface-500 sm:mt-4 sm:text-sm">
                 📍 {{ disaster.location_name }}
               </p>
             </div>
@@ -201,63 +219,63 @@ onMounted(() => {
     </section>
 
     <!-- Featured Campaign -->
-    <section v-if="featuredCampaign" class="content-auto bg-surface-100 py-16 sm:py-24">
+    <section v-if="featuredCampaign" class="content-auto bg-surface-100 py-10 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="scroll-animate scale-up overflow-hidden rounded-3xl bg-white shadow-xl">
+        <div class="scroll-animate scale-up overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
           <div class="grid lg:grid-cols-2">
-            <div class="img-zoom relative h-64 lg:h-auto">
+            <div class="relative h-48 sm:h-56 lg:h-auto">
               <img
-                :src="featuredCampaign.image_url"
+                :src="`${featuredCampaign.image_url}&w=600&q=70&auto=format&fm=webp`"
                 :alt="featuredCampaign.title"
                 class="h-full w-full object-cover"
-                width="320"
-                height="213"
+                width="600"
+                height="400"
                 loading="lazy"
                 decoding="async"
               />
-              <div class="absolute left-4 top-4">
-                <span class="rounded-full bg-accent-600 px-4 py-1 text-sm font-semibold text-white shadow-lg">
+              <div class="absolute left-3 top-3 sm:left-4 sm:top-4">
+                <span class="rounded-full bg-accent-600 px-3 py-1 text-xs font-semibold text-white shadow-lg sm:px-4 sm:text-sm">
                   Featured Campaign
                 </span>
               </div>
             </div>
-            <div class="p-8 lg:p-12">
-              <h2 class="text-2xl font-bold text-surface-900 lg:text-3xl">
+            <div class="p-5 sm:p-8 lg:p-10 xl:p-12">
+              <h2 class="text-xl font-bold text-surface-900 sm:text-2xl lg:text-3xl">
                 {{ featuredCampaign.title }}
               </h2>
-              <p class="mt-4 text-surface-600">
+              <p class="mt-2 text-sm text-surface-600 sm:mt-3 sm:text-base lg:mt-4">
                 {{ featuredCampaign.description }}
               </p>
 
               <!-- Progress Bar -->
-              <div class="mt-8">
+              <div class="mt-5 sm:mt-6 lg:mt-8">
                 <div class="flex items-end justify-between">
                   <div>
-                    <p class="text-3xl font-bold text-accent-600">
+                    <p class="text-2xl font-bold text-accent-600 sm:text-3xl">
                       {{ formatCurrency(featuredCampaign.current_amount) }}
                     </p>
-                    <p class="text-sm text-surface-500">
+                    <p class="text-xs text-surface-500 sm:text-sm">
                       raised of {{ formatCurrency(featuredCampaign.goal_amount) }} goal
                     </p>
                   </div>
-                  <p class="text-lg font-semibold text-surface-900">
+                  <p class="text-base font-semibold text-surface-900 sm:text-lg">
                     {{ featuredCampaign.progress_percentage }}%
                   </p>
                 </div>
-                <div class="mt-4 h-3 overflow-hidden rounded-full bg-surface-200">
+                <div class="mt-3 h-2.5 overflow-hidden rounded-full bg-surface-200 sm:mt-4 sm:h-3">
                   <div
                     class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600 transition-all duration-1000 ease-out"
                     :style="{ width: `${featuredCampaign.progress_percentage}%` }"
                   />
                 </div>
-                <p class="mt-2 text-sm text-surface-500">
+                <p class="mt-1.5 text-xs text-surface-500 sm:mt-2 sm:text-sm">
                   {{ featuredCampaign.donor_count.toLocaleString() }} donors
                 </p>
               </div>
 
               <RouterLink
                 :to="`/campaigns/${featuredCampaign.id}`"
-                class="btn-hover mt-8 inline-flex items-center gap-2 rounded-xl bg-accent-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-accent-700"
+                class="btn-hover mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg active:scale-[0.98] sm:mt-6 sm:w-auto sm:px-8 sm:py-3.5 lg:mt-8 lg:py-4 lg:text-lg"
               >
                 Donate Now
               </RouterLink>
@@ -268,53 +286,53 @@ onMounted(() => {
     </section>
 
     <!-- How We Help Section -->
-    <section class="content-auto py-16 sm:py-24">
+    <section class="content-auto py-10 sm:py-16 lg:py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate text-center">
-          <h2 class="text-3xl font-bold text-surface-900">How We Help</h2>
-          <p class="mt-4 text-lg text-surface-600">
+          <h2 class="text-xl font-bold text-surface-900 sm:text-2xl lg:text-3xl">How We Help</h2>
+          <p class="mt-2 text-sm text-surface-600 sm:mt-3 sm:text-base lg:mt-4 lg:text-lg">
             Our comprehensive approach to disaster relief
           </p>
         </div>
 
-        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="scroll-animate card-hover stagger-1 rounded-2xl border border-surface-200 bg-white p-6 text-center">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100 text-3xl">
+        <div class="mt-8 grid gap-4 grid-cols-2 sm:mt-10 sm:gap-6 lg:mt-12 lg:grid-cols-4 lg:gap-8">
+          <div class="scroll-animate card-hover stagger-1 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               🚑
             </div>
-            <h3 class="mt-4 text-lg font-semibold text-surface-900">Emergency Response</h3>
-            <p class="mt-2 text-sm text-surface-600">
-              Rapid deployment of resources within 24 hours of disaster
+            <h3 class="mt-3 text-sm font-semibold text-surface-900 sm:mt-4 sm:text-base lg:text-lg">Emergency Response</h3>
+            <p class="mt-1.5 text-xs text-surface-600 sm:mt-2 sm:text-sm">
+              Rapid deployment within 24 hours
             </p>
           </div>
 
-          <div class="scroll-animate card-hover stagger-2 rounded-2xl border border-surface-200 bg-white p-6 text-center">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-100 text-3xl">
+          <div class="scroll-animate card-hover stagger-2 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               🏠
             </div>
-            <h3 class="mt-4 text-lg font-semibold text-surface-900">Shelter & Housing</h3>
-            <p class="mt-2 text-sm text-surface-600">
-              Temporary and long-term housing solutions for displaced families
+            <h3 class="mt-3 text-sm font-semibold text-surface-900 sm:mt-4 sm:text-base lg:text-lg">Shelter & Housing</h3>
+            <p class="mt-1.5 text-xs text-surface-600 sm:mt-2 sm:text-sm">
+              Housing for displaced families
             </p>
           </div>
 
-          <div class="scroll-animate card-hover stagger-3 rounded-2xl border border-surface-200 bg-white p-6 text-center">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-success-100 text-3xl">
+          <div class="scroll-animate card-hover stagger-3 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-success-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               🍽️
             </div>
-            <h3 class="mt-4 text-lg font-semibold text-surface-900">Food & Water</h3>
-            <p class="mt-2 text-sm text-surface-600">
-              Essential supplies and clean water distribution
+            <h3 class="mt-3 text-sm font-semibold text-surface-900 sm:mt-4 sm:text-base lg:text-lg">Food & Water</h3>
+            <p class="mt-1.5 text-xs text-surface-600 sm:mt-2 sm:text-sm">
+              Essential supplies distribution
             </p>
           </div>
 
-          <div class="scroll-animate card-hover stagger-4 rounded-2xl border border-surface-200 bg-white p-6 text-center">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-warning-100 text-3xl">
+          <div class="scroll-animate card-hover stagger-4 rounded-xl border border-surface-200 bg-white p-4 text-center sm:rounded-2xl sm:p-6">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-warning-100 text-2xl sm:h-16 sm:w-16 sm:rounded-2xl sm:text-3xl">
               💊
             </div>
-            <h3 class="mt-4 text-lg font-semibold text-surface-900">Medical Aid</h3>
-            <p class="mt-2 text-sm text-surface-600">
-              Healthcare services and medical supplies for the injured
+            <h3 class="mt-3 text-sm font-semibold text-surface-900 sm:mt-4 sm:text-base lg:text-lg">Medical Aid</h3>
+            <p class="mt-1.5 text-xs text-surface-600 sm:mt-2 sm:text-sm">
+              Healthcare for the injured
             </p>
           </div>
         </div>
@@ -322,22 +340,22 @@ onMounted(() => {
     </section>
 
     <!-- CTA Section -->
-    <section class="content-auto bg-primary-900 py-12 sm:py-16 lg:py-24">
+    <section class="content-auto bg-primary-900 py-10 sm:py-14 lg:py-20">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 class="scroll-animate text-2xl font-bold text-white sm:text-3xl lg:text-4xl">Ready to Make a Difference?</h2>
-        <p class="scroll-animate stagger-1 mx-auto mt-3 max-w-2xl text-base text-primary-100 sm:mt-4 sm:text-lg">
+        <h2 class="scroll-animate text-xl font-bold text-white sm:text-2xl lg:text-3xl xl:text-4xl">Ready to Make a Difference?</h2>
+        <p class="scroll-animate stagger-1 mx-auto mt-2 max-w-2xl text-sm text-primary-100 sm:mt-3 sm:text-base lg:mt-4 lg:text-lg">
           Whether you donate, volunteer, or spread awareness, your contribution saves lives.
         </p>
-        <div class="scroll-animate stagger-2 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:justify-center sm:gap-4">
+        <div class="scroll-animate stagger-2 mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4">
           <RouterLink
             to="/donate"
-            class="btn-hover rounded-xl bg-accent-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl transition-all hover:bg-accent-700 sm:px-8 sm:py-4 sm:text-lg"
+            class="btn-hover rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
           >
             Donate Now
           </RouterLink>
           <RouterLink
             to="/volunteer"
-            class="btn-hover rounded-xl border-2 border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-white/20 sm:px-8 sm:py-4 sm:text-lg"
+            class="btn-hover rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
           >
             Volunteer
           </RouterLink>

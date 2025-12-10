@@ -73,8 +73,10 @@
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://images.pexels.com">
 
-    <!-- Preload LCP image for better performance -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop" type="image/webp" fetchpriority="high">
+    <!-- Preload LCP image - responsive for mobile/desktop -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" media="(max-width: 639px)" fetchpriority="high">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1024&q=12&auto=format&fm=webp&fit=crop" type="image/webp" media="(min-width: 640px) and (max-width: 1023px)" fetchpriority="high">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&q=15&auto=format&fm=webp&fit=crop" type="image/webp" media="(min-width: 1024px)" fetchpriority="high">
 
     <!-- Using system fonts for maximum performance -->
 
