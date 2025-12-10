@@ -33,15 +33,14 @@ watch(() => route.path, () => {
         <div class="flex h-16 items-center justify-between">
           <!-- Logo -->
           <RouterLink to="/" class="flex items-center gap-2.5" aria-label="RescueNet - Go to homepage">
-            <div class="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 shadow-md">
-              <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="currentColor" opacity="0.2"/>
-                <path d="M11 8h2v3h3v2h-3v3h-2v-3H8v-2h3V8z" fill="currentColor"/>
-              </svg>
-              <span class="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
-                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75"></span>
-                <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-500"></span>
-              </span>
+            <div class="relative">
+              <img
+                src="/logo.svg"
+                alt="RescueNet Logo"
+                class="h-9 w-9"
+                width="36"
+                height="36"
+              />
             </div>
             <span class="text-lg font-bold text-surface-900">
               Rescue<span class="text-primary-600">Net</span>
@@ -146,12 +145,13 @@ watch(() => route.path, () => {
           <!-- Brand -->
           <div class="sm:col-span-2 lg:col-span-1">
             <div class="flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700">
-                <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="currentColor" opacity="0.2"/>
-                  <path d="M11 8h2v3h3v2h-3v3h-2v-3H8v-2h3V8z" fill="currentColor"/>
-                </svg>
-              </div>
+              <img
+                src="/logo.svg"
+                alt="RescueNet Logo"
+                class="h-10 w-10"
+                width="40"
+                height="40"
+              />
               <span class="text-xl font-bold text-white">RescueNet</span>
             </div>
             <p class="mt-4 text-sm text-surface-400">
