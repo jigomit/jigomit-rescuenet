@@ -279,6 +279,42 @@
 }
 
 /* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Use GPU acceleration for animations */
+.card-hover,
+.btn-hover,
+.img-zoom img,
+.float {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .float,
+    .pulse-glow,
+    .hero-animate {
+        animation: none !important;
+    }
+
+    .scroll-animate {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ========================================
    MOBILE OPTIMIZATIONS
    ======================================== */
 @media (max-width: 640px) {
@@ -297,10 +333,21 @@
         animation: none;
     }
 
+    /* Disable floating animations on mobile */
+    .float {
+        animation: none;
+    }
+
     /* Better text sizing on mobile */
     html {
         font-size: 16px;
         -webkit-text-size-adjust: 100%;
+    }
+
+    /* Reduce blur effects on mobile for performance */
+    .blur-2xl,
+    .blur-3xl {
+        display: none;
     }
 }
 

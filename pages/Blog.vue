@@ -74,9 +74,14 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80"
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=60&auto=format&fit=crop"
           alt="Disaster relief news coverage"
           class="h-full w-full object-cover opacity-20"
+          width="1200"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
       </div>
@@ -161,10 +166,13 @@ onMounted(() => {
               <!-- Image -->
               <div class="relative h-48 overflow-hidden">
                 <img
-                  :src="post.image_url"
+                  :src="post.image_url + '?w=400&q=75&auto=format&fit=crop'"
                   :alt="post.title"
                   class="h-full w-full object-cover"
+                  width="400"
+                  height="300"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <span class="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-surface-700 backdrop-blur-sm">

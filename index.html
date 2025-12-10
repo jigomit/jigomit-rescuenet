@@ -34,10 +34,21 @@
     <meta name="theme-color" content="#2563eb" />
     <meta name="msapplication-TileColor" content="#2563eb" />
 
-    <!-- Fonts -->
+    <!-- Preconnect to image CDNs -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.pexels.com">
+
+    <!-- Preload LCP image for better performance -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=60&auto=format&fit=crop" fetchpriority="high">
+
+    <!-- Fonts - Load asynchronously to prevent render blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <!-- Structured Data -->
     <script type="application/ld+json">

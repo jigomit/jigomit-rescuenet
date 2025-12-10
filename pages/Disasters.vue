@@ -35,9 +35,14 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1600&q=80"
+          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1200&q=60&auto=format&fit=crop"
           alt="Flood disaster scene"
           class="h-full w-full object-cover opacity-30"
+          width="1200"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
       </div>
@@ -129,9 +134,13 @@ onMounted(() => {
           >
             <div class="relative h-48 overflow-hidden">
               <img
-                :src="disaster.image_url"
+                :src="disaster.image_url + '&auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
+                width="400"
+                height="300"
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div class="absolute bottom-4 left-4 flex gap-2">

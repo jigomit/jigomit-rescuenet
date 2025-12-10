@@ -30,9 +30,14 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600&q=80"
+          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=60&auto=format&fit=crop"
           alt="Relief workers providing aid"
           class="h-full w-full object-cover opacity-20"
+          width="1200"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
 
@@ -84,9 +89,13 @@ onMounted(() => {
             <div class="grid lg:grid-cols-2">
               <div class="relative h-64 overflow-hidden lg:h-auto">
                 <img
-                  :src="featuredCampaign.image_url"
+                  :src="featuredCampaign.image_url + '&auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'"
                   :alt="featuredCampaign.title"
                   class="h-full w-full object-cover"
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div class="absolute left-4 top-4">
                   <span class="rounded-full bg-accent-600 px-4 py-1 text-sm font-semibold text-white shadow-lg">
@@ -144,9 +153,13 @@ onMounted(() => {
           >
             <div class="relative h-48 overflow-hidden">
               <img
-                :src="campaign.image_url"
+                :src="campaign.image_url + '&auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'"
                 :alt="campaign.title"
                 class="h-full w-full object-cover"
+                width="400"
+                height="300"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="p-6">
