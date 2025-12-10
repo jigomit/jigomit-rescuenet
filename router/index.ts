@@ -117,32 +117,11 @@ const router = createRouter({
   },
 })
 
-// Update page title and meta description on route change
-router.beforeEach((to, _from, next) => {
+// Update page title on route change (minimal for performance)
+router.afterEach((to) => {
+  // Use afterEach instead of beforeEach to not block navigation
   const title = to.meta.title as string || 'RescueNet - Disaster Relief'
-  const description = to.meta.description as string || 'RescueNet provides rapid disaster relief and humanitarian aid worldwide.'
-
   document.title = title
-
-  // Update meta description
-  const metaDescription = document.querySelector('meta[name="description"]')
-  if (metaDescription) {
-    metaDescription.setAttribute('content', description)
-  }
-
-  // Update OG tags
-  const ogTitle = document.querySelector('meta[property="og:title"]')
-  const ogDescription = document.querySelector('meta[property="og:description"]')
-  if (ogTitle) ogTitle.setAttribute('content', title)
-  if (ogDescription) ogDescription.setAttribute('content', description)
-
-  // Update Twitter tags
-  const twitterTitle = document.querySelector('meta[name="twitter:title"]')
-  const twitterDescription = document.querySelector('meta[name="twitter:description"]')
-  if (twitterTitle) twitterTitle.setAttribute('content', title)
-  if (twitterDescription) twitterDescription.setAttribute('content', description)
-
-  next()
 })
 
 export default router
