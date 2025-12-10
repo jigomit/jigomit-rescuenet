@@ -256,7 +256,7 @@ watch(() => route.path, () => {
     </nav>
 
     <!-- Spacer for bottom nav on mobile -->
-    <div class="mobile-spacer"></div>
+    <div class="h-20 sm:hidden"></div>
   </div>
 </template>
 
