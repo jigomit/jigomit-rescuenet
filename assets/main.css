@@ -297,11 +297,11 @@ html {
 }
 
 /* ========================================
-   CLS PREVENTION - Disable all transitions/animations
+   CLS PREVENTION - Minimal transitions only
    ======================================== */
-*, *::before, *::after {
-    transition: none !important;
-    animation: none !important;
+/* Allow only color and opacity transitions for interactivity */
+button, a, input, select, textarea {
+    transition: color 0.15s, background-color 0.15s, opacity 0.15s, border-color 0.15s !important;
 }
 
 /* ========================================

@@ -266,14 +266,14 @@ const closeSuccess = () => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
           <img
-            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=15&auto=format&fm=webp&fit=crop"
-            alt="Volunteers distributing food and supplies to disaster victims"
+            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
+            alt=""
             class="h-full w-full object-cover opacity-20"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -576,7 +576,7 @@ const closeSuccess = () => {
             <div v-if="featuredCampaign" class="rounded-2xl border border-surface-200 bg-white p-6">
               <h3 class="font-semibold text-surface-900">Featured Campaign</h3>
               <div class="mt-4">
-                <img :src="featuredCampaign.image_url" :alt="featuredCampaign.title" class="h-40 w-full rounded-lg object-cover" />
+                <img :src="`${featuredCampaign.image_url}&w=300&q=40&auto=format&fm=webp`" :alt="featuredCampaign.title" class="h-40 w-full rounded-lg object-cover" width="300" height="160" loading="lazy" decoding="async" />
                 <h4 class="mt-4 font-semibold text-surface-900">{{ featuredCampaign.title }}</h4>
                 <div class="mt-3 h-2 overflow-hidden rounded-full bg-surface-200">
                   <div class="h-full bg-accent-600" :style="{ width: `${featuredCampaign.progress_percentage}%` }" />
@@ -592,7 +592,7 @@ const closeSuccess = () => {
             <div class="rounded-2xl bg-surface-100 p-6">
               <p class="text-surface-600 italic">"I've been donating monthly to RescueNet for 2 years. Knowing that 100% goes directly to relief efforts gives me confidence my contribution matters."</p>
               <div class="mt-4 flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=60&auto=format&fm=webp&fit=crop" alt="Profile photo of a recent donor" class="h-10 w-10 rounded-full object-cover" width="40" height="40" loading="lazy" decoding="async" />
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&q=50&auto=format&fm=webp&fit=crop" alt="Donor" class="h-10 w-10 rounded-full object-cover" width="40" height="40" loading="lazy" decoding="async" />
                 <div>
                   <p class="font-medium text-surface-900">Emily S.</p>
                   <p class="text-sm text-surface-500">Monthly Donor since 2023</p>

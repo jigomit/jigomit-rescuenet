@@ -35,22 +35,22 @@ const team = [
   {
     name: 'Dr. Sarah Chen',
     role: 'Executive Director',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     name: 'Michael Rodriguez',
     role: 'Operations Director',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     name: 'Emily Thompson',
     role: 'Volunteer Coordinator',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     name: 'David Kim',
     role: 'Disaster Response Lead',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&q=80',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
 ]
 </script>
@@ -61,14 +61,14 @@ const team = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
           <img
-            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=15&auto=format&fm=webp&fit=crop"
-            alt="Humanitarian workers helping children affected by disasters"
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
+            alt=""
             class="h-full w-full object-cover opacity-30"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -122,8 +122,8 @@ const team = [
             </div>
           </div>
           <div class="flex flex-row gap-4">
-            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=60&auto=format&fm=webp&fit=crop" alt="Relief workers providing aid in disaster affected areas" class="w-1/2 rounded-xl object-cover" width="400" height="300" loading="lazy" decoding="async" />
-            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=60&auto=format&fm=webp&fit=crop" alt="Volunteers distributing food to disaster victims" class="w-1/2 rounded-xl object-cover" width="400" height="300" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&q=40&auto=format&fm=webp&fit=crop" alt="Relief workers providing aid" class="w-1/2 rounded-xl object-cover" width="300" height="225" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=300&q=40&auto=format&fm=webp&fit=crop" alt="Volunteers distributing food" class="w-1/2 rounded-xl object-cover" width="300" height="225" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

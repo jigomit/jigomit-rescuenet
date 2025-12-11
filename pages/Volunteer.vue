@@ -182,25 +182,25 @@ const roles = [
     title: 'Emergency Responder',
     description: 'Join front-line teams providing immediate assistance in disaster zones.',
     icon: '🚨',
-    image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?w=400',
+    image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
   {
     title: 'Medical Volunteer',
     description: 'Provide healthcare support and first aid in affected communities.',
     icon: '🏥',
-    image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?w=400',
+    image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
   {
     title: 'Logistics Coordinator',
     description: 'Help organize and distribute supplies to those in need.',
     icon: '📦',
-    image: 'https://images.pexels.com/photos/6646914/pexels-photo-6646914.jpeg?w=400',
+    image: 'https://images.pexels.com/photos/6646914/pexels-photo-6646914.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
   {
     title: 'Community Support',
     description: 'Assist with shelter operations and community outreach.',
     icon: '🏠',
-    image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?w=400',
+    image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
 ]
 
@@ -209,13 +209,13 @@ const testimonials = [
     quote: 'Volunteering with RescueNet changed my life. The impact we make together is incredible.',
     author: 'Sarah M.',
     role: 'Emergency Responder',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     quote: 'Being able to help families rebuild after disasters is the most rewarding work I\'ve ever done.',
     author: 'Michael R.',
     role: 'Logistics Coordinator',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&q=50&auto=format&fm=webp&fit=crop',
   },
 ]
 
@@ -540,14 +540,14 @@ const availabilityOptions = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
           <img
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop"
-            alt="Volunteers working together to provide disaster relief assistance"
+            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
+            alt=""
             class="h-full w-full object-cover opacity-30"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"

@@ -35,14 +35,14 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
           <img
-            src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=15&auto=format&fm=webp&fit=crop"
-            alt="Flood disaster scene showing affected community"
+            src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
+            alt=""
             class="h-full w-full object-cover opacity-30"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -132,13 +132,13 @@ onMounted(() => {
             class="scroll-animate card-hover img-zoom group overflow-hidden rounded-2xl border border-surface-200 bg-white shadow-sm"
             :class="`stagger-${(index % 3) + 1}`"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative h-48 overflow-hidden bg-surface-200">
               <img
-                :src="disaster.image_url"
+                :src="`${disaster.image_url}&w=300&q=40&auto=format&fm=webp`"
                 :alt="disaster.title"
                 class="h-full w-full object-cover"
-                width="320"
-                height="213"
+                width="300"
+                height="180"
                 loading="lazy"
                 decoding="async"
               />

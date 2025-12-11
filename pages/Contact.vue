@@ -1,5 +1,24 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+
+// Lazy load Google Maps
+const mapContainer = ref<HTMLElement | null>(null)
+const showMap = ref(false)
+
+onMounted(() => {
+  if (mapContainer.value) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          showMap.value = true
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(mapContainer.value)
+  }
+})
 
 interface FormErrors {
   name?: string
@@ -160,14 +179,14 @@ const contactInfo = [
     <section class="relative overflow-hidden bg-primary-900">
       <div class="absolute inset-0">
         <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
           <img
-            src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=800&q=15&auto=format&fm=webp&fit=crop"
-            alt="Emergency response team coordinating disaster relief efforts"
+            src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
+            alt=""
             class="h-full w-full object-cover opacity-20"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -326,17 +345,35 @@ const contactInfo = [
               </div>
             </div>
 
-            <!-- Map Placeholder -->
-            <div class="overflow-hidden rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=640&q=60&auto=format&fm=webp&fit=crop"
-                alt="World map showing RescueNet global operations and disaster response locations"
-                class="h-64 w-full object-cover"
-                width="640"
-                height="256"
-                loading="lazy"
-                decoding="async"
-              />
+            <!-- Google Map - Lazy loaded -->
+            <div ref="mapContainer" class="h-64 w-full overflow-hidden rounded-xl">
+              <a
+                v-if="showMap"
+                href="https://www.google.com/maps/place/New+York,+NY+10001/@40.7407679,-74.0042588,17z"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block h-full w-full cursor-pointer"
+                aria-label="Open location in Google Maps"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878428698!3d40.74076794379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sNew%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1702300000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="256"
+                  style="border:0; pointer-events: none;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="RescueNet Office Location - New York, NY"
+                  class="h-64 w-full"
+                ></iframe>
+              </a>
+              <!-- Map placeholder while loading -->
+              <div v-else class="flex h-full w-full items-center justify-center bg-surface-200">
+                <div class="text-center">
+                  <span class="text-3xl">📍</span>
+                  <p class="mt-2 text-sm text-surface-500">Loading map...</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

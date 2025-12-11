@@ -30,14 +30,14 @@ onMounted(() => {
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
       <div class="absolute inset-0">
         <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=15&auto=format&fm=webp&fit=crop" type="image/webp" />
+          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
+          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
           <img
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=15&auto=format&fm=webp&fit=crop"
-            alt="Relief workers providing aid to disaster affected communities"
+            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
+            alt=""
             class="h-full w-full object-cover opacity-20"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -87,13 +87,13 @@ onMounted(() => {
         <div v-if="featuredCampaign" class="scroll-animate scale-up mb-12">
           <div class="img-zoom overflow-hidden rounded-3xl border border-surface-200 bg-white shadow-lg transition-all hover:shadow-2xl">
             <div class="grid lg:grid-cols-2">
-              <div class="relative h-64 overflow-hidden lg:h-auto">
+              <div class="relative h-64 overflow-hidden bg-surface-200 lg:h-auto">
                 <img
-                  :src="featuredCampaign.image_url"
+                  :src="`${featuredCampaign.image_url}&w=400&q=50&auto=format&fm=webp`"
                   :alt="featuredCampaign.title"
                   class="h-full w-full object-cover"
-                  width="480"
-                  height="320"
+                  width="400"
+                  height="300"
                   loading="lazy"
                   decoding="async"
                 />
@@ -151,13 +151,13 @@ onMounted(() => {
             class="scroll-animate card-hover img-zoom group overflow-hidden rounded-2xl border border-surface-200 bg-white shadow-sm"
             :class="`stagger-${(index % 3) + 1}`"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative h-48 overflow-hidden bg-surface-200">
               <img
-                :src="campaign.image_url"
+                :src="`${campaign.image_url}&w=300&q=40&auto=format&fm=webp`"
                 :alt="campaign.title"
                 class="h-full w-full object-cover"
-                width="320"
-                height="213"
+                width="300"
+                height="180"
                 loading="lazy"
                 decoding="async"
               />

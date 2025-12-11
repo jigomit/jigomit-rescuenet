@@ -4,6 +4,11 @@ export interface DisasterType {
   icon: string
 }
 
+export interface DisasterCoordinates {
+  lat: number
+  lng: number
+}
+
 export interface Disaster {
   id: number
   slug: string
@@ -12,6 +17,7 @@ export interface Disaster {
   severity: 'critical' | 'high' | 'moderate' | 'low'
   status: 'monitoring' | 'active' | 'recovery' | 'resolved'
   location_name: string
+  coordinates: DisasterCoordinates
   started_at: string
   estimated_affected_people: number
   estimated_damage_usd: number
@@ -37,6 +43,7 @@ export const disasters: Disaster[] = [
     severity: 'critical',
     status: 'active',
     location_name: 'Gaziantep, Turkey',
+    coordinates: { lat: 37.0662, lng: 37.3833 },
     started_at: '2024-02-06',
     estimated_affected_people: 850000,
     estimated_damage_usd: 34000000000,
@@ -51,6 +58,7 @@ export const disasters: Disaster[] = [
     severity: 'high',
     status: 'active',
     location_name: 'Sylhet, Bangladesh',
+    coordinates: { lat: 24.8949, lng: 91.8687 },
     started_at: '2024-06-15',
     estimated_affected_people: 2500000,
     estimated_damage_usd: 5000000000,
@@ -65,6 +73,7 @@ export const disasters: Disaster[] = [
     severity: 'high',
     status: 'active',
     location_name: 'Northern California, USA',
+    coordinates: { lat: 39.8333, lng: -121.4944 },
     started_at: '2024-07-20',
     estimated_affected_people: 125000,
     estimated_damage_usd: 8500000000,
@@ -79,6 +88,7 @@ export const disasters: Disaster[] = [
     severity: 'moderate',
     status: 'recovery',
     location_name: 'Leyte, Philippines',
+    coordinates: { lat: 10.4167, lng: 124.9833 },
     started_at: '2024-05-10',
     estimated_affected_people: 450000,
     estimated_damage_usd: 2000000000,
@@ -93,6 +103,7 @@ export const disasters: Disaster[] = [
     severity: 'high',
     status: 'active',
     location_name: 'Kenya, Ethiopia, Somalia',
+    coordinates: { lat: 1.2921, lng: 36.8219 },
     started_at: '2024-01-15',
     estimated_affected_people: 5000000,
     estimated_damage_usd: 1500000000,

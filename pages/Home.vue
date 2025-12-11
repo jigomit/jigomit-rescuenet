@@ -35,30 +35,30 @@ onMounted(() => {
     <section class="relative h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:h-[450px] lg:h-[550px]">
       <div class="absolute inset-0" aria-hidden="true">
         <picture>
-          <!-- Mobile: smaller image, lower quality for faster load -->
+          <!-- Mobile: smaller image, very low quality for faster load -->
           <source
             media="(max-width: 639px)"
-            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&q=10&auto=format&fm=webp&fit=crop"
+            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50"
             type="image/webp"
           />
           <!-- Tablet: medium image -->
           <source
             media="(max-width: 1023px)"
-            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1024&q=12&auto=format&fm=webp&fit=crop"
+            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50"
             type="image/webp"
           />
-          <!-- Desktop: larger image -->
+          <!-- Desktop: larger image but still optimized -->
           <source
             media="(min-width: 1024px)"
-            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&q=15&auto=format&fm=webp&fit=crop"
+            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=10&auto=format&fm=webp&fit=crop&blur=50"
             type="image/webp"
           />
           <img
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=12&auto=format&fm=webp&fit=crop"
+            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
             alt=""
             class="h-full w-full object-cover opacity-20"
-            width="800"
-            height="450"
+            width="600"
+            height="400"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -145,11 +145,11 @@ onMounted(() => {
             <!-- Fixed height container with bg prevents CLS -->
             <div class="relative h-40 overflow-hidden bg-surface-200 sm:h-44 lg:h-48">
               <img
-                :src="`${disaster.image_url}&w=400&q=60&auto=format&fm=webp`"
+                :src="`${disaster.image_url}&w=300&q=40&auto=format&fm=webp`"
                 :alt="disaster.title"
                 class="absolute inset-0 h-full w-full object-cover"
-                width="400"
-                height="192"
+                width="300"
+                height="180"
                 loading="lazy"
                 decoding="async"
               />
@@ -196,11 +196,11 @@ onMounted(() => {
             <!-- Fixed height container with bg prevents CLS -->
             <div class="relative h-48 bg-surface-200 sm:h-56 lg:h-auto lg:min-h-[300px]">
               <img
-                :src="`${featuredCampaign.image_url}&w=600&q=70&auto=format&fm=webp`"
+                :src="`${featuredCampaign.image_url}&w=400&q=50&auto=format&fm=webp`"
                 :alt="featuredCampaign.title"
                 class="absolute inset-0 h-full w-full object-cover"
-                width="600"
-                height="400"
+                width="400"
+                height="300"
                 loading="lazy"
                 decoding="async"
               />
