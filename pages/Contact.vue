@@ -150,8 +150,8 @@ const contactInfo = [
   },
 ]
 
-// Hero background image - humanitarian support/contact related
-const heroImage = 'https://images.pexels.com/photos/6646920/pexels-photo-6646920.jpeg'
+// Hero background image - support team communication
+const heroImage = 'https://images.pexels.com/photos/7176026/pexels-photo-7176026.jpeg'
 </script>
 
 <template>
