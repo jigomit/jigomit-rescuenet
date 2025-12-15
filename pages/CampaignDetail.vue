@@ -151,7 +151,7 @@ const formatCurrency = (amount: number) => {
               class="group overflow-hidden rounded-xl border border-surface-200 bg-white"
             >
               <div class="h-40 overflow-hidden">
-                <img :src="c.image_url" :alt="c.title" class="h-full w-full object-cover transition-transform group-hover:scale-105" />
+                <img :src="c.image_url" :alt="c.title" class="h-full w-full object-cover" />
               </div>
               <div class="p-4">
                 <h3 class="font-semibold text-surface-900 group-hover:text-primary-600">{{ c.title }}</h3>

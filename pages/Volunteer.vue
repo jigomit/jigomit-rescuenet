@@ -543,7 +543,7 @@ const availabilityOptions = [
           </p>
           <button
             @click="showForm = true"
-            class="mt-5 rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg active:scale-[0.98] sm:mt-6 sm:px-6 sm:py-3.5 sm:text-base lg:mt-8 lg:px-8 lg:py-4 lg:text-lg"
+            class="mt-5 rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg sm:mt-6 sm:px-6 sm:py-3.5 sm:text-base lg:mt-8 lg:px-8 lg:py-4 lg:text-lg"
           >
             Apply to Volunteer
           </button>
@@ -634,7 +634,7 @@ const availabilityOptions = [
         <p class="mt-4 text-lg text-accent-100">Join thousands of volunteers worldwide who are changing lives.</p>
         <button
           @click="showForm = true"
-          class="mt-8 rounded-xl bg-white px-8 py-4 text-lg font-semibold text-accent-600 transition-all hover:bg-accent-50 hover:scale-105"
+          class="mt-8 rounded-xl bg-white px-8 py-4 text-lg font-semibold text-accent-600 hover:bg-accent-50"
         >
           Apply to Volunteer
         </button>

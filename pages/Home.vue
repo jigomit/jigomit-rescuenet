@@ -48,7 +48,7 @@ onMounted(() => {
           <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
             <RouterLink
               to="/donate"
-              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
+              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
             >
               Donate Now
               <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +57,7 @@ onMounted(() => {
             </RouterLink>
             <RouterLink
               to="/volunteer"
-              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
+              class="btn-hover inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
             >
               Become a Volunteer
             </RouterLink>
@@ -108,7 +108,7 @@ onMounted(() => {
             v-for="(disaster, index) in activeDisasters"
             :key="disaster.id"
             :to="`/disasters/${disaster.id}`"
-            class="scroll-animate card-hover group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm active:scale-[0.98] sm:rounded-2xl"
+            class="scroll-animate card-hover group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm sm:rounded-2xl"
             :class="`stagger-${index + 1}`"
           >
             <!-- Fixed aspect-ratio container with bg prevents CLS -->
@@ -200,7 +200,7 @@ onMounted(() => {
 
               <RouterLink
                 :to="`/campaigns/${featuredCampaign.id}`"
-                class="btn-hover mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg active:scale-[0.98] sm:mt-6 sm:w-auto sm:px-8 sm:py-3.5 lg:mt-8 lg:py-4 lg:text-lg"
+                class="btn-hover mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg sm:mt-6 sm:w-auto sm:px-8 sm:py-3.5 lg:mt-8 lg:py-4 lg:text-lg"
               >
                 Donate Now
               </RouterLink>
@@ -274,13 +274,13 @@ onMounted(() => {
         <div class="scroll-animate stagger-2 mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4">
           <RouterLink
             to="/donate"
-            class="btn-hover rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
+            class="btn-hover rounded-xl bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-lg sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
           >
             Donate Now
           </RouterLink>
           <RouterLink
             to="/volunteer"
-            class="btn-hover rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white active:scale-[0.98] sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
+            class="btn-hover rounded-xl border-2 border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white sm:px-6 sm:py-3.5 sm:text-base lg:px-8 lg:py-4 lg:text-lg"
           >
             Volunteer
           </RouterLink>

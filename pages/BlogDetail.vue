@@ -235,7 +235,7 @@ onMounted(() => {
               <img
                 :src="related.image_url"
                 :alt="related.title"
-                class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                class="h-full w-full object-cover"
                 loading="lazy"
               />
             </div>
