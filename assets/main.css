@@ -361,6 +361,56 @@ html {
 }
 
 /* ========================================
+   CLS PREVENTION - CRITICAL
+   ======================================== */
+
+/* Force explicit sizing on all hero sections */
+section[class*="relative"][class*="overflow-hidden"] {
+    contain: layout style;
+}
+
+/* Prevent image loading from causing CLS */
+img {
+    content-visibility: auto;
+}
+
+/* Reserve space for hero images with aspect-ratio fallback */
+section > img[class*="absolute"][class*="inset-0"] {
+    position: absolute !important;
+    inset: 0 !important;
+}
+
+/* Stats section - prevent number reflow */
+.stats-section p,
+section p[class*="font-bold"][class*="text-"] {
+    min-height: 1.5em;
+    contain: layout;
+}
+
+/* Content below fold - use content-visibility for performance */
+.content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+}
+
+/* Prevent RouterView transitions from causing CLS */
+.app-main {
+    contain: layout;
+    min-height: calc(100vh - 64px - 72px);
+}
+
+@media (min-width: 640px) {
+    .app-main {
+        min-height: calc(100vh - 64px);
+    }
+}
+
+/* Ensure grid items don't shift */
+[class*="grid"] > * {
+    contain: layout;
+}
+
+/* ========================================
    MOBILE OPTIMIZATIONS
    ======================================== */
 @media (max-width: 640px) {

@@ -150,8 +150,8 @@ const contactInfo = [
   },
 ]
 
-// Hero background image - customer support/contact related
-const heroImage = 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg'
+// Hero background image - humanitarian support/contact related
+const heroImage = 'https://images.pexels.com/photos/6646920/pexels-photo-6646920.jpeg'
 </script>
 
 <template>
@@ -178,8 +178,8 @@ const heroImage = 'https://images.pexels.com/photos/3184465/pexels-photo-3184465
       </div>
     </Transition>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-surface-200">
+    <!-- Hero Section - Fixed height prevents CLS -->
+    <section class="relative h-[180px] overflow-hidden bg-surface-200 sm:h-[200px] lg:h-[220px]">
       <img
         :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
         alt="Contact RescueNet team"

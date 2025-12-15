@@ -61,6 +61,9 @@
     <link rel="preconnect" href="https://images.pexels.com" crossorigin />
     <link rel="dns-prefetch" href="https://images.pexels.com" />
 
+    <!-- Preload critical hero image for LCP optimization -->
+    <link rel="preload" as="image" href="https://images.pexels.com/photos/6646773/pexels-photo-6646773.jpeg?auto=compress&cs=tinysrgb&w=1400&h=600&fit=crop&fm=webp" fetchpriority="high" />
+
     <!-- Critical CSS - prevents CLS by reserving space for header, hero, bottom nav -->
     <style>
       *,*::before,*::after{box-sizing:border-box}
@@ -73,7 +76,13 @@
       /* Reserve space for bottom nav on mobile */
       @media(max-width:639px){#app>div:last-child{height:72px;min-height:72px}}
       /* Prevent CLS from content loading */
-      main{flex:1;min-height:0}
+      main{flex:1;min-height:0;contain:layout}
+      /* Reserve space for hero section - CRITICAL for CLS */
+      main>div>section:first-child{min-height:400px}
+      @media(min-width:640px){main>div>section:first-child{min-height:450px}}
+      @media(min-width:1024px){main>div>section:first-child{min-height:550px}}
+      /* Prevent all layout shifts */
+      img{max-width:100%;height:auto}
       /* Disable all transforms and animations initially */
       *{transform:none!important;animation:none!important}
       /* Re-enable after load via class */

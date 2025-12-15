@@ -35,7 +35,7 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section - Fixed height prevents CLS -->
-    <section class="relative min-h-[400px] overflow-hidden bg-surface-200 sm:min-h-[450px] lg:min-h-[550px]">
+    <section class="relative h-[400px] overflow-hidden bg-surface-200 sm:h-[450px] lg:h-[550px]">
       <!-- Hero background image -->
       <img
         :src="heroImage + '?auto=compress&cs=tinysrgb&w=1400&h=600&fit=crop&fm=webp'"
