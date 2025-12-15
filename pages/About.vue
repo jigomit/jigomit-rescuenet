@@ -35,26 +35,48 @@ const team = [
   {
     name: 'Dr. Sarah Chen',
     role: 'Executive Director',
+    image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg',
   },
   {
     name: 'Michael Rodriguez',
     role: 'Operations Director',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
   },
   {
     name: 'Emily Thompson',
     role: 'Volunteer Coordinator',
+    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg',
   },
   {
     name: 'David Kim',
     role: 'Disaster Response Lead',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
   },
 ]
+
+// Mission section images - humanitarian/rescue related
+const missionImages = [
+  'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg', // rescue workers
+  'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg', // humanitarian aid
+]
+
+// Hero background image - about/team related
+const heroImage = 'https://images.pexels.com/photos/6647035/pexels-photo-6647035.jpeg'
 </script>
 
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="About RescueNet team"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="max-w-3xl">
@@ -102,11 +124,27 @@ const team = [
             </div>
           </div>
           <div class="flex flex-row gap-4">
-            <div class="w-1/2 aspect-[4/3] rounded-xl bg-gradient-to-br from-primary-200 to-primary-300 flex items-center justify-center">
-              <span class="text-4xl opacity-50">🚑</span>
+            <div class="w-1/2 aspect-[4/3] overflow-hidden rounded-xl bg-surface-200">
+              <img
+                :src="missionImages[0] + '?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop&fm=webp'"
+                alt="Rescue workers helping community"
+                class="h-full w-full object-cover"
+                width="400"
+                height="300"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-            <div class="w-1/2 aspect-[4/3] rounded-xl bg-gradient-to-br from-accent-200 to-accent-300 flex items-center justify-center">
-              <span class="text-4xl opacity-50">🤝</span>
+            <div class="w-1/2 aspect-[4/3] overflow-hidden rounded-xl bg-surface-200">
+              <img
+                :src="missionImages[1] + '?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop&fm=webp'"
+                alt="Humanitarian aid distribution"
+                class="h-full w-full object-cover"
+                width="400"
+                height="300"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
@@ -139,8 +177,16 @@ const team = [
         </div>
         <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div v-for="member in team" :key="member.name" class="text-center">
-            <div class="mx-auto h-40 w-40 rounded-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
-              <span class="text-5xl opacity-60">👤</span>
+            <div class="mx-auto h-40 w-40 overflow-hidden rounded-full bg-surface-200">
+              <img
+                :src="member.image + '?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop&fm=webp'"
+                :alt="member.name"
+                class="h-full w-full object-cover"
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <h3 class="mt-4 font-semibold text-surface-900">{{ member.name }}</h3>
             <p class="text-surface-500">{{ member.role }}</p>

@@ -17,6 +17,9 @@ const formatCurrency = (amount: number) => {
   }).format(amount)
 }
 
+// Hero background image - campaigns/fundraising related
+const heroImage = 'https://images.pexels.com/photos/6646919/pexels-photo-6646919.jpeg'
+
 onMounted(() => {
   setTimeout(() => {
     observeAll('.scroll-animate')
@@ -27,8 +30,17 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
-
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="Donation campaigns for disaster relief"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-accent-800/90 to-accent-600/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
@@ -71,10 +83,17 @@ onMounted(() => {
         <div v-if="featuredCampaign" class="scroll-animate scale-up mb-12">
           <div class="img-zoom overflow-hidden rounded-3xl border border-surface-200 bg-white shadow-lg transition-all hover:shadow-2xl">
             <div class="grid lg:grid-cols-2">
-              <div class="relative aspect-[4/3] bg-gradient-to-br from-primary-600 to-primary-800 lg:aspect-auto lg:min-h-[300px]">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="text-6xl opacity-30 sm:text-7xl lg:text-8xl">💰</span>
-                </div>
+              <div class="relative aspect-[4/3] overflow-hidden bg-surface-200 lg:aspect-auto lg:min-h-[300px]">
+                <img
+                  :src="featuredCampaign.image_url + '&w=600&q=70&auto=format&fm=webp&fit=crop'"
+                  :alt="featuredCampaign.title"
+                  class="h-full w-full object-cover"
+                  width="600"
+                  height="450"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div class="absolute left-4 top-4">
                   <span class="rounded-full bg-accent-600 px-4 py-1 text-sm font-semibold text-white shadow-lg">
                     Featured Campaign
@@ -130,6 +149,16 @@ onMounted(() => {
             :class="`stagger-${(index % 3) + 1}`"
           >
             <div class="relative aspect-[5/3] overflow-hidden bg-surface-200">
+              <img
+                :src="campaign.image_url + '&w=400&q=60&auto=format&fm=webp&fit=crop'"
+                :alt="campaign.title"
+                class="h-full w-full object-cover"
+                width="400"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
             <div class="p-6">
               <h3 class="text-lg font-semibold text-surface-900 transition-colors group-hover:text-primary-600">

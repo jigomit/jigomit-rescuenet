@@ -15,6 +15,9 @@ interface FormErrors {
 
 const featuredCampaign = getFeaturedCampaign()
 
+// Hero background image - donation/giving related
+const heroImage = 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg'
+
 const selectedAmount = ref<number | null>(100)
 const customAmount = ref('')
 const donationAmounts = [25, 50, 100, 250, 500, 1000]
@@ -263,7 +266,17 @@ const closeSuccess = () => {
     </Transition>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="Donate to help disaster relief"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-accent-800/90 to-accent-600/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">

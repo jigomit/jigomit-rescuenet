@@ -8,6 +8,9 @@ import { useScrollAnimation } from '@/composables/useScrollAnimation'
 const featuredCampaign = getFeaturedCampaign()
 const activeDisasters = disasters.filter(d => d.status === 'active').slice(0, 3)
 
+// Hero background image - disaster relief/rescue related
+const heroImage = 'https://images.pexels.com/photos/6646773/pexels-photo-6646773.jpeg'
+
 const { observeAll } = useScrollAnimation()
 
 const formatCurrency = (amount: number) => {
@@ -32,8 +35,17 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section - Fixed height prevents CLS -->
-    <section class="relative min-h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:min-h-[450px] lg:min-h-[550px]">
-      <!-- Background gradient only - no external image to prevent CLS -->
+    <section class="relative min-h-[400px] overflow-hidden bg-surface-200 sm:min-h-[450px] lg:min-h-[550px]">
+      <!-- Hero background image -->
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1400&h=600&fit=crop&fm=webp'"
+        alt="Disaster relief volunteers in action"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1400"
+        height="600"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" aria-hidden="true" />
 
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-32">
@@ -113,6 +125,15 @@ onMounted(() => {
           >
             <!-- Fixed aspect-ratio container with bg prevents CLS -->
             <div class="relative aspect-[5/3] overflow-hidden bg-surface-200">
+              <img
+                :src="disaster.image_url + '?w=400&q=60&auto=format&fm=webp&fit=crop'"
+                :alt="disaster.title"
+                class="h-full w-full object-cover"
+                width="400"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                 <span
@@ -153,11 +174,18 @@ onMounted(() => {
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate scale-up overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
           <div class="grid lg:grid-cols-2">
-            <!-- Fixed aspect-ratio container with gradient bg prevents CLS -->
-            <div class="relative aspect-[4/3] bg-gradient-to-br from-primary-600 to-primary-800 lg:aspect-auto lg:min-h-[300px]">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-6xl opacity-30 sm:text-7xl lg:text-8xl">🌍</span>
-              </div>
+            <!-- Fixed aspect-ratio container with image prevents CLS -->
+            <div class="relative aspect-[4/3] overflow-hidden bg-surface-200 lg:aspect-auto lg:min-h-[300px]">
+              <img
+                :src="featuredCampaign.image_url + '&w=600&q=70&auto=format&fm=webp&fit=crop'"
+                :alt="featuredCampaign.title"
+                class="h-full w-full object-cover"
+                width="600"
+                height="450"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               <div class="absolute left-3 top-3 sm:left-4 sm:top-4">
                 <span class="rounded-full bg-accent-600 px-3 py-1 text-xs font-semibold text-white shadow-lg sm:px-4 sm:text-sm">
                   Featured Campaign

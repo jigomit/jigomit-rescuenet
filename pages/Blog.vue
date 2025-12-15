@@ -61,6 +61,9 @@ const formatDate = (dateString: string) => {
   })
 }
 
+// Hero background image - news/blog related
+const heroImage = 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg'
+
 onMounted(() => {
   setTimeout(() => {
     observeAll('.scroll-animate')
@@ -71,9 +74,17 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="RescueNet blog and news"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
-
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div class="text-center">

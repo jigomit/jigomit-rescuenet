@@ -25,11 +25,15 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString('en-US', 
 <template>
   <div v-if="disaster">
     <!-- Hero Section -->
-    <section class="relative h-64 overflow-hidden sm:h-80 lg:h-96">
+    <section class="relative h-64 overflow-hidden bg-surface-200 sm:h-80 lg:h-96">
       <img
-        :src="disaster.image_url"
+        :src="disaster.image_url + '?w=1200&q=70&auto=format&fm=webp&fit=crop'"
         :alt="disaster.title"
         class="h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       <div class="absolute inset-0 flex items-end">

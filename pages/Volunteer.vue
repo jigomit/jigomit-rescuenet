@@ -182,21 +182,25 @@ const roles = [
     title: 'Emergency Responder',
     description: 'Join front-line teams providing immediate assistance in disaster zones.',
     icon: '🚨',
+    image: 'https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg',
   },
   {
     title: 'Medical Volunteer',
     description: 'Provide healthcare support and first aid in affected communities.',
     icon: '🏥',
+    image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg',
   },
   {
     title: 'Logistics Coordinator',
     description: 'Help organize and distribute supplies to those in need.',
     icon: '📦',
+    image: 'https://images.pexels.com/photos/6646914/pexels-photo-6646914.jpeg',
   },
   {
     title: 'Community Support',
     description: 'Assist with shelter operations and community outreach.',
     icon: '🏠',
+    image: 'https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg',
   },
 ]
 
@@ -205,13 +209,18 @@ const testimonials = [
     quote: 'Volunteering with RescueNet changed my life. The impact we make together is incredible.',
     author: 'Sarah M.',
     role: 'Emergency Responder',
+    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg',
   },
   {
     quote: 'Being able to help families rebuild after disasters is the most rewarding work I\'ve ever done.',
     author: 'Michael R.',
     role: 'Logistics Coordinator',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
   },
 ]
+
+// Hero background image - volunteer related
+const heroImage = 'https://images.pexels.com/photos/6646915/pexels-photo-6646915.jpeg'
 
 const roleOptions = [
   'Emergency Responder',
@@ -531,7 +540,16 @@ const availabilityOptions = [
     </Transition>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="Volunteers helping disaster relief"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="max-w-3xl">
@@ -589,7 +607,16 @@ const availabilityOptions = [
             :key="role.title"
             class="group overflow-hidden rounded-2xl border border-surface-200 bg-white transition-all hover:shadow-lg"
           >
-            <div class="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-primary-200 to-primary-400">
+            <div class="relative aspect-[16/9] overflow-hidden bg-surface-200">
+              <img
+                :src="role.image + '?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop&fm=webp'"
+                :alt="role.title"
+                class="h-full w-full object-cover"
+                width="400"
+                height="225"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <span class="absolute bottom-4 left-4 text-3xl">{{ role.icon }}</span>
             </div>
@@ -614,8 +641,16 @@ const availabilityOptions = [
           >
             <p class="text-lg text-surface-600">"{{ testimonial.quote }}"</p>
             <div class="mt-6 flex items-center gap-4">
-              <div class="h-12 w-12 rounded-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
-                <span class="text-xl opacity-60">👤</span>
+              <div class="h-12 w-12 overflow-hidden rounded-full bg-surface-200">
+                <img
+                  :src="testimonial.image + '?auto=compress&cs=tinysrgb&w=48&h=48&fit=crop&fm=webp'"
+                  :alt="testimonial.author"
+                  class="h-full w-full object-cover"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div>
                 <p class="font-semibold text-surface-900">{{ testimonial.author }}</p>

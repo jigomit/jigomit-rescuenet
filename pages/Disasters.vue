@@ -22,6 +22,9 @@ const filteredDisasters = computed(() => {
 
 const formatNumber = (num: number) => new Intl.NumberFormat('en-US').format(num)
 
+// Hero background image - disaster related
+const heroImage = 'https://images.pexels.com/photos/6471926/pexels-photo-6471926.jpeg'
+
 onMounted(() => {
   setTimeout(() => {
     observeAll('.scroll-animate')
@@ -32,7 +35,16 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="Active disaster response"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
 
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
@@ -117,6 +129,15 @@ onMounted(() => {
             :class="`stagger-${(index % 3) + 1}`"
           >
             <div class="relative aspect-[5/3] overflow-hidden bg-surface-200">
+              <img
+                :src="disaster.image_url + '?w=400&q=60&auto=format&fm=webp&fit=crop'"
+                :alt="disaster.title"
+                class="h-full w-full object-cover"
+                width="400"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span

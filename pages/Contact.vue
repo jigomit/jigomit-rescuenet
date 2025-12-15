@@ -149,6 +149,9 @@ const contactInfo = [
     icon: '📍',
   },
 ]
+
+// Hero background image - customer support/contact related
+const heroImage = 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg'
 </script>
 
 <template>
@@ -176,7 +179,17 @@ const contactInfo = [
     </Transition>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+    <section class="relative overflow-hidden bg-surface-200">
+      <img
+        :src="heroImage + '?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop&fm=webp'"
+        alt="Contact RescueNet team"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">

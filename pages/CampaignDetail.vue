@@ -28,11 +28,15 @@ const formatCurrency = (amount: number) => {
 <template>
   <div v-if="campaign">
     <!-- Hero -->
-    <section class="relative h-64 overflow-hidden sm:h-80">
+    <section class="relative h-64 overflow-hidden bg-surface-200 sm:h-80">
       <img
-        :src="campaign.image_url"
+        :src="campaign.image_url + '&w=1200&q=70&auto=format&fm=webp&fit=crop'"
         :alt="campaign.title"
         class="h-full w-full object-cover"
+        width="1200"
+        height="320"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       <div class="absolute inset-0 flex items-end">
@@ -150,8 +154,16 @@ const formatCurrency = (amount: number) => {
               :to="`/campaigns/${c.id}`"
               class="group overflow-hidden rounded-xl border border-surface-200 bg-white"
             >
-              <div class="h-40 overflow-hidden">
-                <img :src="c.image_url" :alt="c.title" class="h-full w-full object-cover" />
+              <div class="h-40 overflow-hidden bg-surface-200">
+                <img
+                  :src="c.image_url + '&w=400&q=60&auto=format&fm=webp&fit=crop'"
+                  :alt="c.title"
+                  class="h-full w-full object-cover"
+                  width="400"
+                  height="160"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="p-4">
                 <h3 class="font-semibold text-surface-900 group-hover:text-primary-600">{{ c.title }}</h3>

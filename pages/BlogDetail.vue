@@ -35,11 +35,15 @@ onMounted(() => {
 <template>
   <div v-if="post">
     <!-- Hero Image -->
-    <section class="relative h-64 sm:h-80 lg:h-96">
+    <section class="relative h-64 overflow-hidden bg-surface-200 sm:h-80 lg:h-96">
       <img
-        :src="post.image_url"
+        :src="post.image_url + '?w=1200&q=70&auto=format&fm=webp&fit=crop'"
         :alt="post.title"
         class="h-full w-full object-cover"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
