@@ -35,22 +35,18 @@ const team = [
   {
     name: 'Dr. Sarah Chen',
     role: 'Executive Director',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     name: 'Michael Rodriguez',
     role: 'Operations Director',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     name: 'Emily Thompson',
     role: 'Volunteer Coordinator',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     name: 'David Kim',
     role: 'Disaster Response Lead',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=160&q=50&auto=format&fm=webp&fit=crop',
   },
 ]
 </script>
@@ -58,24 +54,8 @@ const team = [
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-primary-900">
-      <div class="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <img
-            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-30"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
-      </div>
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="max-w-3xl">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
@@ -122,8 +102,12 @@ const team = [
             </div>
           </div>
           <div class="flex flex-row gap-4">
-            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&q=40&auto=format&fm=webp&fit=crop" alt="Relief workers providing aid" class="w-1/2 rounded-xl object-cover" width="300" height="225" loading="lazy" decoding="async" />
-            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=300&q=40&auto=format&fm=webp&fit=crop" alt="Volunteers distributing food" class="w-1/2 rounded-xl object-cover" width="300" height="225" loading="lazy" decoding="async" />
+            <div class="w-1/2 aspect-[4/3] rounded-xl bg-gradient-to-br from-primary-200 to-primary-300 flex items-center justify-center">
+              <span class="text-4xl opacity-50">🚑</span>
+            </div>
+            <div class="w-1/2 aspect-[4/3] rounded-xl bg-gradient-to-br from-accent-200 to-accent-300 flex items-center justify-center">
+              <span class="text-4xl opacity-50">🤝</span>
+            </div>
           </div>
         </div>
       </div>
@@ -155,7 +139,9 @@ const team = [
         </div>
         <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div v-for="member in team" :key="member.name" class="text-center">
-            <img :src="member.image" :alt="member.name" class="mx-auto h-40 w-40 rounded-full object-cover" />
+            <div class="mx-auto h-40 w-40 rounded-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+              <span class="text-5xl opacity-60">👤</span>
+            </div>
             <h3 class="mt-4 font-semibold text-surface-900">{{ member.name }}</h3>
             <p class="text-surface-500">{{ member.role }}</p>
           </div>

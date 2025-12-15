@@ -32,24 +32,8 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-primary-900">
-      <div class="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <img
-            src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-30"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
-      </div>
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
 
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
@@ -132,22 +116,13 @@ onMounted(() => {
             class="scroll-animate card-hover img-zoom group overflow-hidden rounded-2xl border border-surface-200 bg-white shadow-sm"
             :class="`stagger-${(index % 3) + 1}`"
           >
-            <div class="relative h-48 overflow-hidden bg-surface-200">
-              <img
-                :src="`${disaster.image_url}&w=300&q=40&auto=format&fm=webp`"
-                :alt="disaster.title"
-                class="h-full w-full object-cover"
-                width="300"
-                height="180"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="relative aspect-[5/3] overflow-hidden bg-surface-200">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span
-                  class="rounded-full px-3 py-1 text-xs font-semibold uppercase transition-transform hover:scale-105"
+                  class="rounded-full px-3 py-1 text-xs font-semibold uppercase"
                   :class="{
-                    'bg-red-500 text-white animate-pulse': disaster.severity === 'critical',
+                    'bg-red-500 text-white': disaster.severity === 'critical',
                     'bg-orange-500 text-white': disaster.severity === 'high',
                     'bg-yellow-500 text-black': disaster.severity === 'moderate',
                     'bg-green-500 text-white': disaster.severity === 'low',
@@ -210,41 +185,20 @@ onMounted(() => {
 </template>
 
 <style scoped>
-@keyframes fade-slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* List transition */
+/* All animations disabled to prevent CLS */
 .list-enter-active,
-.list-leave-active {
-  transition: all 0.4s ease;
+.list-leave-active,
+.list-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: none !important;
 }
 
 .list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.list-move {
-  transition: transform 0.4s ease;
-}
-
-/* Fade transition */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
+.list-leave-to,
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  opacity: 1 !important;
+  transform: none !important;
 }
 </style>

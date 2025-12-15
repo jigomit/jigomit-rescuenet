@@ -32,40 +32,9 @@ onMounted(() => {
 <template>
   <div>
     <!-- Hero Section - Fixed height prevents CLS -->
-    <section class="relative h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:h-[450px] lg:h-[550px]">
-      <div class="absolute inset-0" aria-hidden="true">
-        <picture>
-          <!-- Mobile: smaller image, very low quality for faster load -->
-          <source
-            media="(max-width: 639px)"
-            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50"
-            type="image/webp"
-          />
-          <!-- Tablet: medium image -->
-          <source
-            media="(max-width: 1023px)"
-            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            type="image/webp"
-          />
-          <!-- Desktop: larger image but still optimized -->
-          <source
-            media="(min-width: 1024px)"
-            srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=10&auto=format&fm=webp&fit=crop&blur=50"
-            type="image/webp"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-20"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
-      </div>
+    <section class="relative min-h-[400px] overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 sm:min-h-[450px] lg:min-h-[550px]">
+      <!-- Background gradient only - no external image to prevent CLS -->
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" aria-hidden="true" />
 
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-32">
         <div class="max-w-3xl">
@@ -142,17 +111,8 @@ onMounted(() => {
             class="scroll-animate card-hover group overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm active:scale-[0.98] sm:rounded-2xl"
             :class="`stagger-${index + 1}`"
           >
-            <!-- Fixed height container with bg prevents CLS -->
-            <div class="relative h-40 overflow-hidden bg-surface-200 sm:h-44 lg:h-48">
-              <img
-                :src="`${disaster.image_url}&w=300&q=40&auto=format&fm=webp`"
-                :alt="disaster.title"
-                class="absolute inset-0 h-full w-full object-cover"
-                width="300"
-                height="180"
-                loading="lazy"
-                decoding="async"
-              />
+            <!-- Fixed aspect-ratio container with bg prevents CLS -->
+            <div class="relative aspect-[5/3] overflow-hidden bg-surface-200">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                 <span
@@ -193,17 +153,11 @@ onMounted(() => {
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="scroll-animate scale-up overflow-hidden rounded-2xl bg-white shadow-xl sm:rounded-3xl">
           <div class="grid lg:grid-cols-2">
-            <!-- Fixed height container with bg prevents CLS -->
-            <div class="relative h-48 bg-surface-200 sm:h-56 lg:h-auto lg:min-h-[300px]">
-              <img
-                :src="`${featuredCampaign.image_url}&w=400&q=50&auto=format&fm=webp`"
-                :alt="featuredCampaign.title"
-                class="absolute inset-0 h-full w-full object-cover"
-                width="400"
-                height="300"
-                loading="lazy"
-                decoding="async"
-              />
+            <!-- Fixed aspect-ratio container with gradient bg prevents CLS -->
+            <div class="relative aspect-[4/3] bg-gradient-to-br from-primary-600 to-primary-800 lg:aspect-auto lg:min-h-[300px]">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-6xl opacity-30 sm:text-7xl lg:text-8xl">🌍</span>
+              </div>
               <div class="absolute left-3 top-3 sm:left-4 sm:top-4">
                 <span class="rounded-full bg-accent-600 px-3 py-1 text-xs font-semibold text-white shadow-lg sm:px-4 sm:text-sm">
                   Featured Campaign
@@ -235,7 +189,7 @@ onMounted(() => {
                 </div>
                 <div class="mt-3 h-2.5 overflow-hidden rounded-full bg-surface-200 sm:mt-4 sm:h-3">
                   <div
-                    class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600 transition-all duration-1000 ease-out"
+                    class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600"
                     :style="{ width: `${featuredCampaign.progress_percentage}%` }"
                   />
                 </div>

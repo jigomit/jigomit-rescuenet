@@ -176,23 +176,7 @@ const contactInfo = [
     </Transition>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-primary-900">
-      <div class="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <img
-            src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-20"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
@@ -383,33 +367,25 @@ const contactInfo = [
 </template>
 
 <style scoped>
+/* All animations disabled to prevent CLS */
 .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
+.fade-leave-active,
+.modal-enter-active,
+.modal-leave-active,
+.modal-enter-active .relative,
+.modal-leave-active .relative {
+  transition: none !important;
 }
 
 .fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
-}
-
+.fade-leave-to,
 .modal-enter-from,
 .modal-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-active .relative,
-.modal-leave-active .relative {
-  transition: transform 0.3s ease;
+  opacity: 1 !important;
 }
 
 .modal-enter-from .relative,
 .modal-leave-to .relative {
-  transform: scale(0.9);
+  transform: none !important;
 }
 </style>

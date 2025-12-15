@@ -182,25 +182,21 @@ const roles = [
     title: 'Emergency Responder',
     description: 'Join front-line teams providing immediate assistance in disaster zones.',
     icon: '🚨',
-    image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
   {
     title: 'Medical Volunteer',
     description: 'Provide healthcare support and first aid in affected communities.',
     icon: '🏥',
-    image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
   {
     title: 'Logistics Coordinator',
     description: 'Help organize and distribute supplies to those in need.',
     icon: '📦',
-    image: 'https://images.pexels.com/photos/6646914/pexels-photo-6646914.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
   {
     title: 'Community Support',
     description: 'Assist with shelter operations and community outreach.',
     icon: '🏠',
-    image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=300&q=40',
   },
 ]
 
@@ -209,13 +205,11 @@ const testimonials = [
     quote: 'Volunteering with RescueNet changed my life. The impact we make together is incredible.',
     author: 'Sarah M.',
     role: 'Emergency Responder',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&q=50&auto=format&fm=webp&fit=crop',
   },
   {
     quote: 'Being able to help families rebuild after disasters is the most rewarding work I\'ve ever done.',
     author: 'Michael R.',
     role: 'Logistics Coordinator',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&q=50&auto=format&fm=webp&fit=crop',
   },
 ]
 
@@ -537,24 +531,8 @@ const availabilityOptions = [
     </Transition>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-primary-900">
-      <div class="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <img
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-30"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
-      </div>
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/70" />
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="max-w-3xl">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
@@ -611,8 +589,7 @@ const availabilityOptions = [
             :key="role.title"
             class="group overflow-hidden rounded-2xl border border-surface-200 bg-white transition-all hover:shadow-lg"
           >
-            <div class="relative h-40 overflow-hidden">
-              <img :src="role.image" :alt="role.title" class="h-full w-full object-cover transition-transform group-hover:scale-105" />
+            <div class="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-primary-200 to-primary-400">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <span class="absolute bottom-4 left-4 text-3xl">{{ role.icon }}</span>
             </div>
@@ -637,7 +614,9 @@ const availabilityOptions = [
           >
             <p class="text-lg text-surface-600">"{{ testimonial.quote }}"</p>
             <div class="mt-6 flex items-center gap-4">
-              <img :src="testimonial.image" :alt="testimonial.author" class="h-12 w-12 rounded-full object-cover" />
+              <div class="h-12 w-12 rounded-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+                <span class="text-xl opacity-60">👤</span>
+              </div>
               <div>
                 <p class="font-semibold text-surface-900">{{ testimonial.author }}</p>
                 <p class="text-sm text-surface-500">{{ testimonial.role }}</p>
@@ -665,33 +644,25 @@ const availabilityOptions = [
 </template>
 
 <style scoped>
+/* All animations disabled to prevent CLS */
 .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
+.fade-leave-active,
+.modal-enter-active,
+.modal-leave-active,
+.modal-enter-active .relative,
+.modal-leave-active .relative {
+  transition: none !important;
 }
 
 .fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
-}
-
+.fade-leave-to,
 .modal-enter-from,
 .modal-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-active .relative,
-.modal-leave-active .relative {
-  transition: transform 0.3s ease;
+  opacity: 1 !important;
 }
 
 .modal-enter-from .relative,
 .modal-leave-to .relative {
-  transform: scale(0.9) translateY(20px);
+  transform: none !important;
 }
 </style>

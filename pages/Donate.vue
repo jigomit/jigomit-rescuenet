@@ -264,22 +264,6 @@ const closeSuccess = () => {
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
-      <div class="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <img
-            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-20"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
           <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
@@ -592,7 +576,9 @@ const closeSuccess = () => {
             <div class="rounded-2xl bg-surface-100 p-6">
               <p class="text-surface-600 italic">"I've been donating monthly to RescueNet for 2 years. Knowing that 100% goes directly to relief efforts gives me confidence my contribution matters."</p>
               <div class="mt-4 flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&q=50&auto=format&fm=webp&fit=crop" alt="Donor" class="h-10 w-10 rounded-full object-cover" width="40" height="40" loading="lazy" decoding="async" />
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+                  <span class="text-lg opacity-60">👤</span>
+                </div>
                 <div>
                   <p class="font-medium text-surface-900">Emily S.</p>
                   <p class="text-sm text-surface-500">Monthly Donor since 2023</p>
@@ -607,33 +593,25 @@ const closeSuccess = () => {
 </template>
 
 <style scoped>
+/* All animations disabled to prevent CLS */
 .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
+.fade-leave-active,
+.modal-enter-active,
+.modal-leave-active,
+.modal-enter-active .relative,
+.modal-leave-active .relative {
+  transition: none !important;
 }
 
 .fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
-}
-
+.fade-leave-to,
 .modal-enter-from,
 .modal-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-active .relative,
-.modal-leave-active .relative {
-  transition: transform 0.3s ease;
+  opacity: 1 !important;
 }
 
 .modal-enter-from .relative,
 .modal-leave-to .relative {
-  transform: scale(0.9);
+  transform: none !important;
 }
 </style>

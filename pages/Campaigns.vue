@@ -28,22 +28,6 @@ onMounted(() => {
   <div>
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-800">
-      <div class="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&q=5&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=8&auto=format&fm=webp&fit=crop&blur=50" type="image/webp" />
-          <img
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=8&auto=format&fm=webp&fit=crop&blur=50"
-            alt=""
-            class="h-full w-full object-cover opacity-20"
-            width="600"
-            height="400"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
 
       <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20 lg:px-8">
         <div class="text-center">
@@ -87,16 +71,10 @@ onMounted(() => {
         <div v-if="featuredCampaign" class="scroll-animate scale-up mb-12">
           <div class="img-zoom overflow-hidden rounded-3xl border border-surface-200 bg-white shadow-lg transition-all hover:shadow-2xl">
             <div class="grid lg:grid-cols-2">
-              <div class="relative h-64 overflow-hidden bg-surface-200 lg:h-auto">
-                <img
-                  :src="`${featuredCampaign.image_url}&w=400&q=50&auto=format&fm=webp`"
-                  :alt="featuredCampaign.title"
-                  class="h-full w-full object-cover"
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div class="relative aspect-[4/3] bg-gradient-to-br from-primary-600 to-primary-800 lg:aspect-auto lg:min-h-[300px]">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-6xl opacity-30 sm:text-7xl lg:text-8xl">💰</span>
+                </div>
                 <div class="absolute left-4 top-4">
                   <span class="rounded-full bg-accent-600 px-4 py-1 text-sm font-semibold text-white shadow-lg">
                     Featured Campaign
@@ -123,7 +101,7 @@ onMounted(() => {
                   </div>
                   <div class="mt-4 h-3 overflow-hidden rounded-full bg-surface-200">
                     <div
-                      class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600 transition-all duration-1000 ease-out"
+                      class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600"
                       :style="{ width: `${featuredCampaign.progress_percentage}%` }"
                     />
                   </div>
@@ -132,7 +110,7 @@ onMounted(() => {
 
                 <RouterLink
                   :to="`/campaigns/${featuredCampaign.id}`"
-                  class="btn-hover pulse-glow mt-8 inline-block rounded-xl bg-accent-600 px-8 py-4 font-semibold text-white shadow-lg hover:bg-accent-700"
+                  class="btn-hover mt-8 inline-block rounded-xl bg-accent-600 px-8 py-4 font-semibold text-white shadow-lg hover:bg-accent-700"
                 >
                   Donate Now
                 </RouterLink>
@@ -151,16 +129,7 @@ onMounted(() => {
             class="scroll-animate card-hover img-zoom group overflow-hidden rounded-2xl border border-surface-200 bg-white shadow-sm"
             :class="`stagger-${(index % 3) + 1}`"
           >
-            <div class="relative h-48 overflow-hidden bg-surface-200">
-              <img
-                :src="`${campaign.image_url}&w=300&q=40&auto=format&fm=webp`"
-                :alt="campaign.title"
-                class="h-full w-full object-cover"
-                width="300"
-                height="180"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="relative aspect-[5/3] overflow-hidden bg-surface-200">
             </div>
             <div class="p-6">
               <h3 class="text-lg font-semibold text-surface-900 transition-colors group-hover:text-primary-600">
@@ -173,7 +142,7 @@ onMounted(() => {
               <div class="mt-4">
                 <div class="h-2 overflow-hidden rounded-full bg-surface-200">
                   <div
-                    class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600 transition-all duration-500"
+                    class="h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-600"
                     :style="{ width: `${campaign.progress_percentage}%` }"
                   />
                 </div>
@@ -192,14 +161,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
-@keyframes fade-slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* All animations disabled to prevent CLS */
 </style>

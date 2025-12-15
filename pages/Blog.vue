@@ -72,19 +72,7 @@ onMounted(() => {
   <div>
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
-      <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=640&q=10&auto=format&fm=webp&fit=crop"
-          alt="News coverage and updates about disaster relief efforts"
-          class="h-full w-full object-cover opacity-20"
-          width="640"
-          height="360"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
-      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent" />
 
 
       <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
@@ -295,24 +283,15 @@ onMounted(() => {
 </template>
 
 <style scoped>
-@keyframes fade-slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* All animations disabled to prevent CLS */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: none !important;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  opacity: 1 !important;
+  transform: none !important;
 }
 </style>

@@ -133,25 +133,32 @@
    SCROLL ANIMATIONS - Disabled for performance
    ======================================== */
 .animate-out,
-.animate-in {
-    opacity: 1;
-    transform: none;
+.animate-in,
+.scroll-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 /* Staggered animations disabled */
 .stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5, .stagger-6 {
-    transition-delay: 0s;
+    transition-delay: 0s !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Slide animations disabled */
+.slide-left,
+.slide-right,
+.scale-up,
 .slide-left.animate-out,
 .slide-left.animate-in,
 .slide-right.animate-out,
 .slide-right.animate-in,
 .scale-up.animate-out,
 .scale-up.animate-in {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* ========================================
@@ -159,13 +166,36 @@
    ======================================== */
 .page-enter-active,
 .page-leave-active {
-    transition: none;
+    transition: none !important;
 }
 
 .page-enter-from,
 .page-leave-to {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ========================================
+   VUE TRANSITIONS - Disabled for performance
+   ======================================== */
+.fade-enter-active,
+.fade-leave-active,
+.modal-enter-active,
+.modal-leave-active,
+.list-enter-active,
+.list-leave-active,
+.list-move {
+    transition: none !important;
+}
+
+.fade-enter-from,
+.fade-leave-to,
+.modal-enter-from,
+.modal-leave-to,
+.list-enter-from,
+.list-leave-to {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* ========================================
